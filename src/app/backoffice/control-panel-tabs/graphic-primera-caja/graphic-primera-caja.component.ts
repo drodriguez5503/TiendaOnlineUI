@@ -25,17 +25,16 @@ export class GraphicPrimeraCajaComponent implements OnInit{
     this.doughnutChartLabels = [
       "Label 1",
       "Label 2",
-      "Label 3",
-      "Label 4"
+      "Label 3"
+
     ];
     this.doughnutChartData.labels = [
       "Label 1",
       "Label 2",
-      "Label 3",
-      "Label 4"
+      "Label 3"
     ];
-    this.doughnutChartData.datasets[0].data = [20,60,50,200];
-    this.doughnutChartData.datasets[0].backgroundColor = ["red","blue","green","orange"];
+    this.doughnutChartData.datasets[0].data = [20,60,50];
+    this.doughnutChartData.datasets[0].backgroundColor = ["red","blue","green",];
 
   }
 
@@ -44,7 +43,7 @@ export class GraphicPrimeraCajaComponent implements OnInit{
     maintainAspectRatio: true,
     plugins: {
       legend: {
-        display:true,
+        display:false,
         position: 'right',
         align: 'center',
         labels: {

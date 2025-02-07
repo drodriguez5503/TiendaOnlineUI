@@ -1,0 +1,79 @@
+.hide-me {
+  p {
+    display: none;
+  }
+
+  h2 {
+    display: none;
+  }
+  div {
+    border: none;
+    justify-content: center !important;
+    align-items: center;
+  }
+
+}
+
+.main-container {
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-bottom: #8f1e00;
+  border-style: dashed;
+  h2 {
+    text-align: right;
+  }
+  .option {
+    cursor: pointer;
+
+    p{
+      padding: 2px;
+      font-size: 12px;
+      top: 10px;
+    }
+
+  }
+
+  .option:hover{
+    background-color: rgba(79, 80, 80, 0.25);
+  }
+}
+
+.socials {
+  h2 {
+    text-align: right;
+  }
+  .option {
+    cursor: pointer;
+
+    p{
+      padding: 2px;
+      font-size: 12px;
+      top: 10px;
+    }
+
+  }
+
+  .option:hover{
+    background-color: rgba(79, 80, 80, 0.25);
+  }
+
+}
+
+.log-off {
+  bottom: 20px;
+  cursor: pointer;
+
+  h2 {
+    text-align: right;
+  }
+
+  p{
+    padding: 2px;
+    font-size: 12px;
+    top: 10px;
+    }
+}
+
+.log-off:hover{
+  background-color: rgba(79, 80, 80, 0.25);
+}

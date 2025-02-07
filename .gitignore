@@ -1,0 +1,30 @@
+# Default ignored files
+/shelf/
+/.idea/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Node modules
+node_modules/
+
+# Angular build artifacts
+dist/
+out-tsc/
+
+# IDE settings y archivos generados por WebStorm
+.idea/
+
+# Dependencias de Angular CLI
+.angular/
+
+# Archivos de entorno
+*.env
+src/environments/environment*.ts
+
+# Caché de npm y Yarn
+.npm/
+.yarn/
+
+
+# Archivos temporales del sistema operativo
+.DS_Store
+Thumbs.db

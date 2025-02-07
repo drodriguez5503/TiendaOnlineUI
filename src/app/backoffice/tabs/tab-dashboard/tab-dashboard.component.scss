@@ -1,0 +1,40 @@
+.dashboard-container{
+  top: 60px;
+  width: 250px;
+  min-width: 250px;
+
+  .element{
+    position: relative;
+    cursor:pointer;
+    padding: 5px;
+
+    p{
+      font-size: 11px;
+      text-align: center;
+    }
+
+    i{
+      width: 40px;
+      height: 40px;
+      top:0;
+      right: -12px;
+    }
+  }
+
+  .element:hover{
+    background-color: rgba(79, 80, 80, 0.1);
+  }
+
+  .more {
+    p{
+      cursor: pointer;
+
+    }
+
+    p:hover{
+      text-decoration: underline;
+      background-color: rgba(79, 80, 80, 0.1);
+      text-decoration-color: #424141;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<app-header></app-header>
+
+<div class="web-container " [class.collapsed]="!isActiveSidebar">
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+  <div>
+    <app-side-bar></app-side-bar>
+  </div>
+</div>
+

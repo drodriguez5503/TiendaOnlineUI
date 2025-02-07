@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="../tabs/tab-dashboard/tab-dashboard.component.scss">
+<header class="position-sticky z-3 top-0 bg-dark row px-4 py-2 m-auto">
+  <div class="col-6 d-flex flex-row align-items-center column-gap-3">
+    <div class="imagen-perfil rounded-circle position-relative bg-white d-flex align-items-center justify-content-center">
+      <i class="bi bi-person-fill text-black fs-5" (click)="toggleItem('isActiveUser')"></i>
+      <span class="bg-success rounded-circle border border-2 position-absolute z-2"></span>
+      <app-tab-user *ngIf="isActiveItems.isActiveUser"></app-tab-user>
+    </div>
+
+    <div class="notificacion position-relative d-flex align-items-center justify-content-center">
+      <i class="bi bi-bell-fill text-white fs-5" (click)="toggleItem('isActiveNotification')"></i>
+      <span class="d-flex align-items-center justify-content-center rounded-circle position-absolute text-white text-center small border border-2  z-2">3</span>
+      <app-tab-notification *ngIf="isActiveItems.isActiveNotification"></app-tab-notification>
+    </div>
+
+    <div>
+      <i class="bi bi-grid-3x3-gap-fill text-white fs-5" (click)="toggleItem('isActiveDashboard')"></i>
+      <app-tab-dashboard *ngIf="isActiveItems.isActiveDashboard"></app-tab-dashboard>
+    </div>
+
+    <div>
+      <i class="bi bi-gear-fill text-white fs-5" (click)="toggleItem('isActiveSettings')"></i>
+
+    </div>
+
+  </div>
+
+  <div class="col-6 d-flex flex-row align-items-center justify-content-end column-gap-4">
+    <div class="search-bar position-relative d-flex align-items-center">
+      <i class="bi bi-search position-absolute bg-white"></i>
+      <input type="text" placeholder="Search" class="form-control rounded-5 ">
+    </div>
+
+    <div class="lista">
+      <i class="bi bi-list text-white fs-5" (click)="toggleLogo()" ></i>
+    </div>
+
+    <div class="logo position-relative d-flex flex-row column-gap-2 align-items-center">
+      <span *ngIf="isActive" class="animate-width">Tienda Online</span>
+      <img ngSrc="/favicon.ico" alt="logo" [width]="30" [height]="30">
+    </div>
+
+  </div>
+</header>
+  <app-app-settings *ngIf="isActiveItems.isActiveSettings"></app-app-settings>

@@ -3,6 +3,7 @@ import {GraphicPrimeraCajaComponent} from '../graphic-primera-caja/graphic-prime
 import {Graphic2PrimeraCajaComponent} from '../graphic2-primera-caja/graphic2-primera-caja.component';
 import {Graphic3PrimeraCajaComponent} from '../graphic3-primera-caja/graphic3-primera-caja.component';
 import {Graphic4PrimeraCajaComponent} from '../graphic4-primera-caja/graphic4-primera-caja.component';
+import {GraphicsTerceraCajaComponent} from '../graphics-tercera-caja/graphics-tercera-caja.component';
 
 @Component({
   selector: 'app-graphics',
@@ -10,7 +11,8 @@ import {Graphic4PrimeraCajaComponent} from '../graphic4-primera-caja/graphic4-pr
     GraphicPrimeraCajaComponent,
     Graphic2PrimeraCajaComponent,
     Graphic3PrimeraCajaComponent,
-    Graphic4PrimeraCajaComponent
+    Graphic4PrimeraCajaComponent,
+    GraphicsTerceraCajaComponent
   ],
   templateUrl: './graphics.component.html',
   standalone: true,

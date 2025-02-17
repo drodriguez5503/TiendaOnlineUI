@@ -6,6 +6,7 @@ import {RegistroComponent} from './cliente/registro/registro.component';
 import {TiendaComponent} from './cliente/tienda/tienda.component';
 import {LayoutBackComponent} from './backoffice/layoutBack/layoutBack.component';
 import {ControlPanelComponent} from './backoffice/control-panel/control-panel.component';
+import {ProfileComponent} from './backoffice/profile/profile.component';
 
 export const routes: Routes = [
   //cliente
@@ -20,6 +21,7 @@ export const routes: Routes = [
   {path:"app",component: LayoutBackComponent, children: [
       {path:"", redirectTo:"control-panel", pathMatch:"full"},
       {path:"control-panel", component: ControlPanelComponent},
+      {path: "profile", component:ProfileComponent},
 
     ]}
 

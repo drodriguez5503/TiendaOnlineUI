@@ -1,0 +1,69 @@
+.container-fluid {
+  overflow: hidden;
+}
+
+nav {
+  .btn {
+    background-color: #ededed;
+  }
+
+  .no-molestar {
+    background-color: #ededed;
+    padding: 7px;
+  }
+
+  .search-bar{
+    width: 200px;
+    i {
+      display: block;
+      left: 10px;
+      color: #ededed;
+    }
+
+    input {
+      text-align: right;
+      background-color: #ededed;
+    }
+
+    input::placeholder {
+      color: gray;
+    }
+
+  }
+}
+
+.coworker {
+  background-color: #ededed;
+  div {
+    background-color: #ededed;
+    border: none;
+
+    ul {
+      background-color: #ededed;
+    }
+
+
+  }
+
+}
+
+.main-feed {
+  background-color: #ededed;
+  max-height: 80vh;
+  overflow-y: auto;
+
+  .post-option{
+    text-align: center;
+  }
+
+  .post-option:hover {
+    background-color: rgba(72, 190, 237, 0.3);
+    cursor: pointer;
+  }
+}
+
+.notifications {
+  background-color: #ededed;
+}
+
+

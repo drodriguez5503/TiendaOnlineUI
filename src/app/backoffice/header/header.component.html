@@ -4,18 +4,18 @@
     <div class="imagen-perfil rounded-circle position-relative bg-white d-flex align-items-center justify-content-center">
       <i class="bi bi-person-fill text-black fs-5" (click)="toggleItem('isActiveUser')"></i>
       <span class="bg-success rounded-circle border border-2 position-absolute z-2"></span>
-      <app-tab-user *ngIf="isActiveItems.isActiveUser"></app-tab-user>
+      <app-tab-user *ngIf="isActiveItems.isActiveUser" (click)="changeItems()"></app-tab-user>
     </div>
 
     <div class="notificacion position-relative d-flex align-items-center justify-content-center">
       <i class="bi bi-bell-fill text-white fs-5" (click)="toggleItem('isActiveNotification')"></i>
       <span class="d-flex align-items-center justify-content-center rounded-circle position-absolute text-white text-center small border border-2  z-2">3</span>
-      <app-tab-notification *ngIf="isActiveItems.isActiveNotification"></app-tab-notification>
+      <app-tab-notification *ngIf="isActiveItems.isActiveNotification" (click)="changeItems()"></app-tab-notification>
     </div>
 
     <div>
       <i class="bi bi-grid-3x3-gap-fill text-white fs-5" (click)="toggleItem('isActiveDashboard')"></i>
-      <app-tab-dashboard *ngIf="isActiveItems.isActiveDashboard"></app-tab-dashboard>
+      <app-tab-dashboard *ngIf="isActiveItems.isActiveDashboard" (click)="changeItems()"></app-tab-dashboard>
     </div>
 
     <div>

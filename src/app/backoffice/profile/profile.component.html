@@ -1,7 +1,7 @@
 
-<div class="container-fluid bg-light min-vh-100 mt-3">
+<div class="container-fluid bg-light max-vh-75 mt-3 overflow-hidden">
 
-  <nav class="position-sticky navbar navbar-light bg-white shadow-sm px-4">
+  <nav class="position-sticky navbar navbar-light bg-white shadow-sm px-4 z-2">
     <div class="d-flex align-items-center gap-2">
       <div class="search-bar position-relative d-flex align-items-center">
         <i class="bi bi-search position-absolute"></i>
@@ -14,11 +14,11 @@
         <i class="bi bi-moon-fill fs-5 fw-bolder text-muted me-4"></i>
         <i class="bi bi-flag-fill fs-5 fw-bolder text-muted"></i>
       </div>
-      <div class="rounded-3 no-molestar d-flex row">
-        <i class="bi bi-bell-fill fs-5 fw-bolder text-muted me-2 col-5"></i>
-        <div class="rounded-circle position-relative bg-white d-flex align-items-center justify-content-center col-5">
+      <div class="rounded-3 no-molestar d-flex justify-content-center px-3">
+        <div class="rounded-circle position-relative bg-white d-flex align-items-center justify-content-center px-2" (click)="toggleUser()">
           <i class="bi bi-person-fill text-black fs-5"></i>
         </div>
+        <app-user-tab *ngIf="this.ActiveUser" ></app-user-tab>
       </div>
     </div>
   </nav>
@@ -40,31 +40,31 @@
             <div class="rounded-circle position-relative bg-white d-flex align-items-center justify-content-center">
               <i class="bi bi-person-fill text-black fs-5 mx-2"></i>
             </div>
-            Fiona
+            Irene
           </li>
           <li class="d-flex align-items-center gap-2 mb-2 shadow-sm bg-white rounded-3 py-3">
             <div class="rounded-circle position-relative bg-white d-flex align-items-center justify-content-center">
               <i class="bi bi-person-fill text-black fs-5 mx-2"></i>
             </div>
-            Fiona
+            Michael
           </li>
           <li class="d-flex align-items-center gap-2 mb-2 shadow-sm bg-white rounded-3 py-3">
             <div class="rounded-circle position-relative bg-white d-flex align-items-center justify-content-center">
               <i class="bi bi-person-fill text-black fs-5 mx-2"></i>
             </div>
-            Fiona
+            Sara
           </li>
           <li class="d-flex align-items-center gap-2 mb-2 shadow-sm bg-white rounded-3 py-3">
             <div class="rounded-circle position-relative bg-white d-flex align-items-center justify-content-center">
               <i class="bi bi-person-fill text-black fs-5 mx-2"></i>
             </div>
-            Fiona
+            Yovanny
           </li>
           <li class="d-flex align-items-center gap-2 mb-2 shadow-sm bg-white rounded-3 py-3">
             <div class="rounded-circle position-relative bg-white d-flex align-items-center justify-content-center">
               <i class="bi bi-person-fill text-black fs-5 mx-2"></i>
             </div>
-            Fiona
+            Gabriel
           </li>
         </ul>
       </div>

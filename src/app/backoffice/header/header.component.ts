@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, HostListener, OnInit} from '@angular/core';
 import {NgIf, NgOptimizedImage} from '@angular/common';
 import {TabNotificationComponent} from '../tabs/tab-notification/tab-notification.component';
 import {TabUserComponent} from '../tabs/tab-user/tab-user.component';
@@ -30,10 +30,8 @@ export class HeaderComponent {
     isActiveSettings: false
   }
 
-  constructor(private sidebarStatusService: SidebarStatusService) {
+  constructor(private sidebarStatusService: SidebarStatusService, private eRef:ElementRef) {
   }
-
-
 
   toggleLogo(){
     this.isActive = !this.isActive;
@@ -50,6 +48,19 @@ export class HeaderComponent {
       })
       this.isActiveItems[option] = true;
     }
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: Event) {
+    if (!this.eRef.nativeElement.contains(event.target)) {
+      this.changeItems();
+    }
+  }
+
+  changeItems(){
+    Object.keys(this.isActiveItems).forEach(key => {
+      this.isActiveItems[key] = false;
+    })
   }
 
 

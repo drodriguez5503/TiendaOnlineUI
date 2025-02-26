@@ -1,1 +1,37 @@
-<p>login works!</p>
+<div class="position-absolute login">
+  <div class="d-flex justify-content-center">
+    <img src="/favicon.ico" class="img img-fluid">
+  </div>
+  <div class="d-flex justify-content-center align-items-center">
+    <h2 class="fw-bolder text-center">Inicia Sesión en TiendaOnline</h2>
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+    <div class="form-group">
+      <label for="user">Usuario</label>
+      <input id="user" type="text" formControlName="user" class="form-control" />
+      <div *ngIf="submitted && form['user'].errors" class="invalid-feedback">
+        <div *ngIf="form['user'].errors?.['user']">El usuario es obligatorio.</div>
+        <div *ngIf="form['user'].errors?.['user']">El usuario no es válido.</div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="d-flex row justify-content-between align-items-center">
+        <label for="password" class="col-3">Contraseña</label>
+        <p class="smaller col-6 contrasena">Recuperar Contraseña</p>
+      </div>
+      <input id="password" type="password" formControlName="password" class="form-control"  />
+      <div *ngIf="submitted && form['password'].errors" class="invalid-feedback">
+        <div *ngIf="form['password'].errors?.['required']">La contraseña es obligatoria.</div>
+        <div *ngIf="form['password'].errors?.['minlength']">Debe tener al menos 6 caracteres.</div>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Ingresar</button>
+  </form>
+
+  <div class="d-flex align-items-center justify-content center mx-auto my-3 border border-1 border-subtle shadow-sm rounded-3 row p-3 registro">
+    <p class="col-8 mx-auto text-center mt-1 mb-0">Nuevo en TiendaOnline?</p>
+    <p class="col-8 mx-auto text-center create mb-0" routerLink="/registro">Crea tu cuenta!</p>
+  </div>
+</div>

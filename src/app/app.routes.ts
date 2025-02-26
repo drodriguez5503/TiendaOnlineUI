@@ -14,7 +14,7 @@ export const routes: Routes = [
       {path:"", component:HomeComponent},
       {path:"login", component:LoginComponent},
       {path:"registro", component:RegistroComponent},
-      {path:"tienda", component:TiendaComponent}
+      {path:"tienda", component:TiendaComponent},
     ]},
 
   //backoffice

@@ -1,1 +1,21 @@
-<p>header works!</p>
+<header class="position-sticky z-3 top-0 bg-dark row px-4 py-2 m-auto">
+  <div class="col-6 d-flex flex-row align-items-center justify-content-end column-gap-4">
+    <div class="logo position-relative d-flex flex-row column-gap-2 align-items-center">
+      <span  class="animate-width">Tienda Online</span>
+      <img ngSrc="/favicon.ico" alt="logo" [width]="30" [height]="30">
+    </div>
+
+    <div class="search-bar position-relative d-flex align-items-center">
+      <i class="bi bi-search position-absolute bg-white"></i>
+      <input type="text" placeholder="Search" class="form-control rounded-5 ">
+    </div>
+
+    <div class="lista">
+      <i class="bi bi-list text-white fs-5"></i>
+    </div>
+  </div>
+  <div class="col-2 ">
+    <button class="btn bg-danger text-center text-white fw-bolder" routerLink="login">Iniciar Sesión</button>
+  </div>
+</header>
+

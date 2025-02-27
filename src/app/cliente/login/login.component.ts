@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {NgIf} from '@angular/common';
 import {RouterLink} from '@angular/router';
+import {CredentialsService} from '../../services/auth/credentials.service';
+import {LoginInterface} from '../../services/interfaces/auth';
 
 @Component({
   selector: 'app-login',
@@ -15,23 +17,29 @@ import {RouterLink} from '@angular/router';
 })
 export class LoginComponent {
   loginForm: FormGroup;
-  submitted = false;
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private credentialsService: CredentialsService ) {
     this.loginForm = this.formBuilder.group({
-      user: ['', [Validators.required]],
-      password: ['', [Validators.required, Validators.minLength(8)]]
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]]
     });
   }
 
-  get form() { return this.loginForm.controls  }
 
 
-  onSubmit() {
-    this.submitted = true;
+  submit() {
     if (this.loginForm.invalid) {
       return;
     }
-    console.log('Formulario enviado', this.loginForm.value);
+
+    this.credentialsService.login(this.loginForm.value as LoginInterface).subscribe({
+      next: (data) => {
+        console.log(data);
+      },
+      error: err => {
+        console.log(err);
+      }
+    })
   }
+
 }

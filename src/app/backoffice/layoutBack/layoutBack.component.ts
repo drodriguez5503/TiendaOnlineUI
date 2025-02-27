@@ -20,7 +20,7 @@ export class LayoutBackComponent implements OnInit{
   constructor(private sideBarStatus: SidebarStatusService) {
   }
 
-  ngOnInit() {
+  ngOnInit():void {
     this.sideBarStatus.$sideBarStatus.subscribe((data) => {
       this.isActiveSidebar = data;
     });

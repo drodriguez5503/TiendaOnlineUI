@@ -20,15 +20,15 @@ export class RegistroComponent {
 
   constructor(private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
       user: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
-      passagain: ['', [Validators.required, Validators.minLength(8)]],
+      address: ['', [Validators.required]],
+      password: ['', [Validators.required]],
+      passagain: ['', [Validators.required]],
       terms: ['', [Validators.required]]
     });
   }
-
-  get form() { return this.loginForm.controls  }
 
 
   onSubmit() {

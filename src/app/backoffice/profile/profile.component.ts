@@ -15,18 +15,18 @@ import {UserTabComponent} from '../profile-tabs/user-tab/user-tab.component';
 })
 export class ProfileComponent {
   ActiveUser: boolean = false;
-  isSearchModalOpen = false;
+  isSearchModalOpen:boolean = false;
 
 
-  showSearchModal() {
+  showSearchModal():void {
     this.isSearchModalOpen = true;
   }
 
-  hideSearchModal() {
+  hideSearchModal():void {
       this.isSearchModalOpen = false;
   }
 
-  toggleUser() {
+  toggleUser():void {
     this.ActiveUser = !this.ActiveUser;
   }
 

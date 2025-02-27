@@ -5,6 +5,7 @@ import {TabUserComponent} from '../tabs/tab-user/tab-user.component';
 import {TabDashboardComponent} from '../tabs/tab-dashboard/tab-dashboard.component';
 import {SidebarStatusService} from '../../services/status/sidebar-status.service';
 import {AppSettingsComponent} from '../tabs/app-settings/app-settings.component';
+import {ActiveItems} from '../../services/interfaces/active-items';
 
 
 @Component({
@@ -23,7 +24,7 @@ import {AppSettingsComponent} from '../tabs/app-settings/app-settings.component'
 })
 export class HeaderComponent {
   isActive : boolean = true;
-  isActiveItems : any = {
+  isActiveItems : ActiveItems = {
     isActiveNotification: false,
     isActiveUser: false,
     isActiveDashboard : false,
@@ -33,12 +34,12 @@ export class HeaderComponent {
   constructor(private sidebarStatusService: SidebarStatusService, private eRef:ElementRef) {
   }
 
-  toggleLogo(){
+  toggleLogo():void{
     this.isActive = !this.isActive;
     this.sidebarStatusService.changeStatus(this.isActive);
   }
 
-  toggleItem(option:string){
+  toggleItem(option:string):void{
     if (this.isActiveItems[option]){
       this.isActiveItems[option] = false;
     } else {
@@ -51,13 +52,13 @@ export class HeaderComponent {
   }
 
   @HostListener('document:click', ['$event'])
-  onClickOutside(event: Event) {
+  onClickOutside(event: Event):void {
     if (!this.eRef.nativeElement.contains(event.target)) {
       this.changeItems();
     }
   }
 
-  changeItems(){
+  changeItems():void{
     Object.keys(this.isActiveItems).forEach(key => {
       this.isActiveItems[key] = false;
     })

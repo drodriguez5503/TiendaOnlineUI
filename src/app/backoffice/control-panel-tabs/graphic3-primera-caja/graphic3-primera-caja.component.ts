@@ -61,7 +61,7 @@ export class Graphic3PrimeraCajaComponent implements OnInit{
       },
       tooltip: {
         callbacks: {
-          label: function (context) {
+          label: function (context):string {
             return `Valor: ${context.raw}`;
           }
         }

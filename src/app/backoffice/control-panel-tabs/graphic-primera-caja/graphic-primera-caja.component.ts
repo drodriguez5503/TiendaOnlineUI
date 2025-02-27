@@ -13,10 +13,7 @@ import {ChartConfiguration, ChartDataset, ChartType} from 'chart.js';
 })
 export class GraphicPrimeraCajaComponent implements OnInit{
 
-
-
   ngOnInit(): void {
-
     this.setChartData()
 
   }
@@ -80,8 +77,5 @@ export class GraphicPrimeraCajaComponent implements OnInit{
     }]
   };
   public doughnutChartType: ChartType = 'doughnut';
-
-
-
 
 }

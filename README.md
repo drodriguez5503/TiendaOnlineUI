@@ -27,7 +27,7 @@ El backend no está en el repositorio por tanto ten en cuenta que cualquier func
 
 Antes de instalar el proyecto:
 - [Node.js](https://nodejs.org/) 
-- [Angular CLI] (instálalo con: `npm install -g @angular/cli`)
+- [Angular CLI](https://angular.io/cli) (instálalo con: `npm install -g @angular/cli`)
 
 ### Clonar el repositorio
 

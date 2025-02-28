@@ -1,21 +1,21 @@
-<header class="position-sticky z-3 top-0 bg-dark row px-4 py-2 m-auto">
-  <div class="col-6 d-flex flex-row align-items-center justify-content-end column-gap-4">
-    <div class="logo position-relative d-flex flex-row column-gap-2 align-items-center">
-      <span  class="animate-width">Tienda Online</span>
+
+<header class="bg-primary row position-sticky top-0 z-3 py-2">
+  <div class="col-6 text-right">
+    <a class="text-decoration-none d-block" rel="noopener" href="">
       <img ngSrc="/favicon.ico" alt="logo" [width]="30" [height]="30">
-    </div>
-
-    <div class="search-bar position-relative d-flex align-items-center">
-      <i class="bi bi-search position-absolute bg-white"></i>
-      <input type="text" placeholder="Search" class="form-control rounded-5 ">
-    </div>
-
-    <div class="lista">
-      <i class="bi bi-list text-white fs-5"></i>
-    </div>
+    </a>
   </div>
-  <div class="col-2 ">
-    <button class="btn bg-danger text-center text-white fw-bolder" routerLink="login">Iniciar Sesión</button>
+  <div class="col-6 d-flex align-items-center justify-content-center">
+    <nav class="d-flex flex-row flex-nowrap align-items-center">
+      <a class="text-white text-decoration-none py-2 px-4" rel="noopener" href="">Inicio</a>
+      <a class="text-white text-decoration-none py-2 px-4" rel="noopener" href="">Tienda</a>
+      <a class="text-white text-decoration-none py-2 px-4" rel="noopener" href=""><i class="bi bi-cart"></i></a>
+      <button type="button" class="btn btn-white text-decoration-none py-1 px-3" routerLink="login">
+        <i class="bi bi-person"></i> Iniciar sesión
+      </button>
+    </nav>
+  </div>
+  <div class="d-none">
+    <button type="button"><i class="bi bi-list"></i></button>
   </div>
 </header>
-

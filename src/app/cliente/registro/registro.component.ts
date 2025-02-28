@@ -1,41 +1,45 @@
 import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
-import {NgIf} from "@angular/common";
-import {RouterLink} from "@angular/router";
+import {CredentialsService} from '../../services/auth/credentials.service';
+import {UserInterface} from '../../services/interfaces/auth';
 
 @Component({
   selector: 'app-registro',
     imports: [
         FormsModule,
-        NgIf,
         ReactiveFormsModule,
-        RouterLink
     ],
   templateUrl: './registro.component.html',
   styleUrl: './registro.component.scss'
 })
 export class RegistroComponent {
-  loginForm: FormGroup;
-  submitted = false;
+  registerForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {
-    this.loginForm = this.formBuilder.group({
+  constructor(private formBuilder: FormBuilder, private credentialsService: CredentialsService) {
+    this.registerForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       user: ['', [Validators.required]],
       address: ['', [Validators.required]],
       password: ['', [Validators.required]],
-      passagain: ['', [Validators.required]],
+      roleName: ['', [Validators.required]],
       terms: ['', [Validators.required]]
     });
   }
 
 
-  onSubmit() {
-    this.submitted = true;
-    if (this.loginForm.invalid) {
+  submit() {
+    if (this.registerForm.invalid) {
       return;
     }
-    console.log('Formulario enviado', this.loginForm.value);
+
+    this.credentialsService.register(this.registerForm.value as UserInterface).subscribe({
+      next: (data:UserInterface) => {
+        console.log(data);
+      },
+      error: err => {
+        console.log(err)
+      }
+    })
   }
 }

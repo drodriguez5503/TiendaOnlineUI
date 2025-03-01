@@ -1,14 +1,12 @@
 .login {
-  top: 200px;
-  margin-right: 33%;
-  margin-left: 37%;
-  width: 25%;
+  top: 100px;
+
   .login-form {
-    max-width: 400px;
-    padding: 20px;
+    padding: 30px;
     border: 1px solid #ccc;
     border-radius: 5px;
     background: #fff;
+    box-sizing: border-box;
 
     .form-group {
       margin-bottom: 15px;
@@ -26,10 +24,6 @@
     }
 
 
-
-    .btn {
-      width: 100%;
-    }
   }
 
   .registro {
@@ -49,4 +43,22 @@
 
   }
 
+}
+
+.responsive-box {
+  width: 100%;
+  margin-left: 30px;
+  margin-right: 30px;
+
+  @media (min-width: 576px) {
+    width: 500px;
+  }
+
+  @media (min-width: 768px) {
+    width: 512px;
+  }
+
+  @media (min-width: 1024px) {
+    width: 570px;
+  }
 }

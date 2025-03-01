@@ -9,7 +9,6 @@ import {LoginInterface} from '../../services/interfaces/auth';
   selector: 'app-login',
   imports: [
     ReactiveFormsModule,
-    NgIf,
     RouterLink
   ],
   templateUrl: './login.component.html',

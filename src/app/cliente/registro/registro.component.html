@@ -1,8 +1,8 @@
-<div class="position-absolute login">
+<div class="position-relative responsive-box mx-auto login">
   <div class="d-flex justify-content-center align-items-center">
     <h2 class="fw-bolder text-center">Crea tu cuenta de TiendaOnline</h2>
   </div>
-  <form [formGroup]="registerForm" method="post" (submit)="submit()" class="login-form">
+  <form [formGroup]="registerForm" method="post" (submit)="submit()" class="login-form mx-auto">
     <div class="form-group">
       <label for="firstName">Nombre</label>
       <input id="firstName" type="text" formControlName="firstName" class="form-control" />

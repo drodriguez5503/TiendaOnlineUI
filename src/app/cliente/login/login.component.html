@@ -1,8 +1,8 @@
-<div class="position-absolute login">
+<div class="position-relative responsive-box login mx-auto">
   <div class="d-flex justify-content-center">
     <img src="/favicon.ico" class="img img-fluid">
   </div>
-  <div class="d-flex justify-content-center align-items-center">
+  <div class="d-flex flex-wrap justify-content-center align-items-center">
     <h2 class="fw-bolder text-center">Inicia Sesión en TiendaOnline</h2>
   </div>
   <form [formGroup]="loginForm" method="post" (submit)="submit()" class="login-form">
@@ -14,15 +14,15 @@
     <div class="form-group">
       <div class="d-flex row justify-content-between align-items-center">
         <label for="password" class="col-3">Contraseña</label>
-        <p class="smaller col-6 contrasena">Recuperar Contraseña</p>
+        <p class="smaller col-6 contrasena text-end">Recuperar Contraseña</p>
       </div>
       <input id="password" type="password" formControlName="password" class="form-control"  />
     </div>
 
-    <button type="submit" class="btn btn-primary">Ingresar</button>
+    <button type="submit" class="btn btn-primary d-flex mx-auto w-75 justify-content-center">Ingresar</button>
   </form>
 
-  <div class="d-flex align-items-center justify-content center mx-auto my-3 border border-1 border-subtle shadow-sm rounded-3 row p-3 registro">
+  <div class="d-flex align-items-center justify-content-center mx-auto my-3 border border-1 border-subtle shadow-sm rounded-3 row p-3 registro">
     <p class="col-8 mx-auto text-center mt-1 mb-0">Nuevo en TiendaOnline?</p>
     <p class="col-8 mx-auto text-center create mb-0" routerLink="/registro">Crea tu cuenta!</p>
   </div>

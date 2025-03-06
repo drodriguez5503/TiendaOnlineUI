@@ -5,6 +5,7 @@ import {Router, RouterLink} from '@angular/router';
 import {CredentialsService} from '../../services/auth/credentials.service';
 import {LoginInterface} from '../../services/interfaces/auth';
 import {TokenService} from '../../services/auth/token.service';
+import {UseStateService} from '../../services/auth/use-state.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ import {TokenService} from '../../services/auth/token.service';
 export class LoginComponent {
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private credentialsService: CredentialsService, private router:Router, private tokenService: TokenService) {
+  constructor(private formBuilder: FormBuilder, private credentialsService: CredentialsService, private router:Router, private tokenService: TokenService, private useStateService:UseStateService) {
     this.loginForm = this.formBuilder.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]]
@@ -35,6 +36,7 @@ export class LoginComponent {
     this.credentialsService.login(this.loginForm.value as LoginInterface).subscribe({
       next: (data) => {
         this.tokenService.saveTokens(data.token,"fefefifrfijogsjosdfeof")
+        this.useStateService.save(data.username,data.role)
         this.router.navigate(['/app/control-panel']);
       },
       error: err => {

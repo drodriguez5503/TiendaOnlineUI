@@ -1,18 +1,26 @@
 
 <header class="bg-dark row position-sticky top-0 z-3 py-2">
-  <div class="col-lg-6 col-1 text-right">
+  <div class="col-lg-5 col-1 text-right">
     <a class="text-decoration-none d-block ms-5 mt-3 mb-2" rel="noopener" href="">
       <img ngSrc="/favicon.ico" alt="logo" [width]="50" [height]="50">
     </a>
   </div>
-  <div class="col-lg-6 col-9 d-flex align-items-center justify-content-lg-center mx-lg-0 mx-2 justify-content-end nav-bar">
-    <nav class="d-flex flex-row flex-nowrap align-items-center">
+  <div class="col-lg-7 col-9 d-flex align-items-center justify-content-end nav-bar">
+    <nav class="d-flex flex-row flex-nowrap align-items-end justify-content-center me-2">
       <a class="text-white text-decoration-none py-2 px-4" rel="noopener" href="">Inicio</a>
       <a class="text-white text-decoration-none py-2 px-4" rel="noopener" href="">Tienda</a>
       <a class="text-white text-decoration-none py-2 px-4" rel="noopener" href=""><i class="bi bi-cart"></i></a>
-      <button type="button" class="btn btn-white text-decoration-none py-1 px-3" routerLink="login">
+
+      <button type="button" class="btn btn-white text-decoration-none py-1 px-3" routerLink="login" *ngIf="!token">
         <i class="bi bi-person"></i> Iniciar sesión
       </button>
+
+
+      <div class="imagen-perfil rounded-circle position-relative bg-white d-flex ms-2 align-items-center justify-content-center" (click)="toggleItem()" *ngIf="token">
+        <i class="bi bi-person-fill text-black fs-5"></i>
+        <span class="bg-success rounded-circle border border-2 position-absolute z-2"></span>
+      </div>
+
     </nav>
   </div>
 </header>

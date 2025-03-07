@@ -30,7 +30,7 @@ export class UseStateService {
     return session.role;
   }
 
-  removeSession(username:string,role:string):void {
+  removeSession():void {
     sessionStorage.removeItem(this.USER_KEY);
   }
 }

@@ -44,5 +44,4 @@ export class TokenService {
     this.cookieService.delete(this.REFRESH_TOKEN_KEY, '/','',enviroment.tokenSecure,'Strict');
   }
 
-
 }

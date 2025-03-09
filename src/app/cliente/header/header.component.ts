@@ -4,6 +4,7 @@ import {LoginComponent} from '../login/login.component';
 import {RouterLink} from '@angular/router';
 import {TokenService} from '../../services/auth/token.service';
 import {TabUserComponent} from '../../backoffice/tabs/tab-user/tab-user.component';
+import {ClientHeaderUserComponent} from '../client-tabs/client-header-user/client-header-user.component';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +12,8 @@ import {TabUserComponent} from '../../backoffice/tabs/tab-user/tab-user.componen
     NgOptimizedImage,
     RouterLink,
     NgIf,
-    TabUserComponent
+    TabUserComponent,
+    ClientHeaderUserComponent
   ],
   templateUrl: './header.component.html',
   standalone: true,

@@ -1,0 +1,33 @@
+<div class="position-absolute user-container bg-white shadow slide-down">
+  <div class="option position-relative my-1 d-flex flex-row column-gap-1 align-items-center justify-content-start" routerLink="/app/profile">
+    <i class="bi bi-person fs-5 position-relative text-muted mx-1"></i>
+    <p class="position-relative text-start small">Profile</p>
+  </div>
+
+  <div class="option position-relative my-1 d-flex flex-row column-gap-1 align-items-center justify-content-start">
+    <i class="bi bi-credit-card fs-5 position-relative text-muted mx-1"></i>
+    <p class="position-relative text-start small">My balance</p>
+  </div>
+
+  <div class="option position-relative my-1 d-flex flex-row column-gap-1 align-items-center justify-content-start">
+    <i class="bi bi-mailbox fs-5 position-relative text-muted mx-1"></i>
+    <p class="position-relative text-start small">Inbox</p>
+  </div>
+
+  <div class="option position-relative my-1 d-flex flex-row column-gap-1 align-items-center justify-content-start">
+    <i class="bi bi-gear fs-5 position-relative text-muted mx-1"></i>
+    <p class="position-relative text-start small">Settings</p>
+  </div>
+
+  <div class="option position-relative border border-1 my-1 d-flex flex-row column-gap-1 align-items-center justify-content-start">
+    <i class="bi bi-check fs-5 position-relative text-success mx-1"></i>
+    <p class="position-relative text-start small">Available</p>
+  </div>
+
+  <div class="option position-relative my-1 d-flex flex-row column-gap-1 align-items-center justify-content-start" (click)="closeSession()">
+    <i class="bi bi-power fs-5 position-relative text-muted mx-1"></i>
+    <p class="position-relative text-start small">Log out</p>
+  </div>
+
+</div>
+

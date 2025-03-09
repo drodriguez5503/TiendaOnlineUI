@@ -1,0 +1,27 @@
+.user-container{
+  top: 60px;
+  right: 0px;
+  width: 150px;
+  min-width: 150px;
+
+  .option {
+    cursor: pointer;
+    p {
+      top: 3px;
+      left: -15px;
+      text-align: left;
+      font-size: 12px;
+    }
+
+    i {
+      top: 0;
+      left: 5px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  .option:hover{
+    background-color: rgba(79, 80, 80, 0.1);
+  }
+}

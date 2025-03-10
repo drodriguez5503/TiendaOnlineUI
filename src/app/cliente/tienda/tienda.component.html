@@ -1,1 +1,37 @@
-<p>tienda works!</p>
+<div class="container my-4">
+  <div class="store-container">
+    <h2 class="section-title">Descubre nuestros productos</h2>
+
+    <div class="product-carousel">
+      <button class="arrow left" (click)="scrollLeft()">
+        &#10094;
+      </button>
+
+      <div class="product-list" #productList>
+        <div class="product-card" *ngFor="let product of products">
+          <div (click)="productDetails(product.id)">
+            <img src="/img.png" [alt]="product.name" class="product-image">
+            <h3 class="mx-1 fs-5">{{ product.name }}</h3>
+            <p class="text-danger fw-bolder">{{ product.price}} {{product.currency}}</p>
+            <button class="buy-btn btn btn-primary px-2 py-1 text-white fw-bolder" (click)="$event.stopPropagation()">Comprar</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="arrow right" (click)="scrollRight()">
+        &#10095;
+      </button>
+    </div>
+  </div>
+
+
+</div>
+
+
+<div *ngIf="prodDetails" class="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 z-3" (click)="closeDetails()">
+  <div class="position-absolute top-50 start-50 translate-middle bg-white rounded p-4 shadow" style="width: 400px;" (click)="$event.stopPropagation()">
+    <app-product-details></app-product-details>
+  </div>
+</div>
+
+

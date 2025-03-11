@@ -1,0 +1,22 @@
+.tarjeta {
+  overflow: hidden;
+  scrollbar-width: none;
+
+  height: 95%;
+  img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 756px) {
+  .tarjeta {
+    height: 100%;
+  }
+  button {
+    position: absolute;
+    bottom: 30px;
+    right: 80px;
+    left: 80px;
+    z-index: 3;
+  }
+}

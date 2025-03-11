@@ -3,6 +3,7 @@ import {ProdCommunicationService} from '../../services/communication/prod-commun
 import {ProductService} from '../../services/products/product.service';
 import {Product} from '../../services/interfaces/product';
 import {NgOptimizedImage} from '@angular/common';
+import {ActiveDetailsService} from '../../services/communication/active-details.service';
 
 @Component({
   selector: 'app-product-details',
@@ -15,8 +16,11 @@ import {NgOptimizedImage} from '@angular/common';
 export class ProductDetailsComponent implements OnInit {
   prodId: number|null = null;
   product: Product | null = null;
+  activeDetails: boolean | null = null;
 
-  constructor(private prodCommunicationService: ProdCommunicationService, private productService: ProductService,) {
+  constructor(private prodCommunicationService: ProdCommunicationService,
+              private productService: ProductService,
+              private activeDetailsService: ActiveDetailsService) {
   }
 
 
@@ -24,6 +28,7 @@ export class ProductDetailsComponent implements OnInit {
     this.prodCommunicationService.productComs$.subscribe(id => {
       this.prodId = id;
     })
+
     if(this.prodId != null) {
       this.productService.getProductById(this.prodId).subscribe( {
         next: data => {
@@ -36,5 +41,11 @@ export class ProductDetailsComponent implements OnInit {
       })
     }
   }
+
+  changeDetailsState() {
+    this.activeDetailsService.changeActiveDetails();
+    console.log(this.activeDetails);
+  }
+
 
 }

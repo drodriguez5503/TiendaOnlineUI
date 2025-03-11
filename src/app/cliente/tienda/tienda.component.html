@@ -1,24 +1,52 @@
 <div class="container my-4">
-  <div class="store-container">
-    <h2 class="section-title">Descubre nuestros productos</h2>
+  <div class="banner position-relative text-white text-center d-flex flex-column justify-content-center align-items-center">
+    <h1 class="fw-bold">Bienvenido a Nuestra Tienda</h1>
+    <p class="fs-4">Descubre los mejores productos al mejor precio</p>
+    <button class="btn btn-warning fw-bold px-4 py-2 mt-2" (click)="scrollToProducts()">Ver Productos</button>
+  </div>
 
+
+
+  <div class="store-container m-auto mt-4 p-3">
+
+    <h2 class="text-start mb-2 fw-bolder">Productos destacados: </h2>
     <div class="product-carousel">
-      <button class="arrow left" (click)="scrollLeft()">
+      <button class="arrow fs-3 position-absolute z-2 h-100 d-flex align-items-center justify-content-center bg-white opacity-75 start-0" (click)="scrollLeft(productList)">
         &#10094;
       </button>
-
-      <div class="product-list" #productList>
-        <div class="product-card" *ngFor="let product of products">
+      <div class="product-list py-2" #productList>
+        <div class="product-card p-2 rounded-2 shadow-lg text-center mx-3" *ngFor="let product of products">
           <div (click)="productDetails(product.id)">
-            <img src="/img.png" [alt]="product.name" class="product-image">
+            <img src="/img.png" [alt]="product.name" class="product-image mb-2">
             <h3 class="mx-1 fs-5">{{ product.name }}</h3>
             <p class="text-danger fw-bolder">{{ product.price}} {{product.currency}}</p>
-            <button class="buy-btn btn btn-primary px-2 py-1 text-white fw-bolder" (click)="$event.stopPropagation()">Comprar</button>
+            <button class="buy-btn btn btn-primary px-2 py-1 text-white fw-bolder" (click)="$event.stopPropagation()">Añadir al carrito</button>
           </div>
         </div>
       </div>
+      <button class="arrow fs-3 position-absolute z-2 h-100 d-flex align-items-center justify-content-center bg-white opacity-75 end-0" (click)="scrollRight(productList)">
+        &#10095;
+      </button>
+    </div>
+  </div>
 
-      <button class="arrow right" (click)="scrollRight()">
+  <div class="store-container m-auto mt-5 p-3">
+    <h2 class="text-start mb-2 fw-bolder">Productos de electrónica: </h2>
+    <div class="product-carousel" id="productCarousel">
+      <button class="arrow fs-3 position-absolute z-2 h-100 d-flex align-items-center justify-content-center bg-white opacity-75 start-0" (click)="scrollLeft(productList2)">
+        &#10094;
+      </button>
+      <div class="product-list py-2" #productList2>
+        <div class="product-card p-2 rounded-2 shadow-lg text-center mx-3" *ngFor="let product of products">
+          <div (click)="productDetails(product.id)">
+            <img src="/img.png" [alt]="product.name" class="product-image mb-2">
+            <h3 class="mx-1 fs-5">{{ product.name }}</h3>
+            <p class="text-danger fw-bolder">{{ product.price}} {{product.currency}}</p>
+            <button class="buy-btn btn btn-primary px-2 py-1 text-white fw-bolder" (click)="$event.stopPropagation()">Añadir al carrito</button>
+          </div>
+        </div>
+      </div>
+      <button class="arrow fs-3 position-absolute z-2 h-100 d-flex align-items-center justify-content-center bg-white opacity-75 end-0" (click)="scrollRight(productList2)">
         &#10095;
       </button>
     </div>
@@ -29,7 +57,7 @@
 
 
 <div *ngIf="prodDetails" class="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 z-3" (click)="closeDetails()">
-  <div class="position-absolute top-50 start-50 translate-middle bg-white rounded p-4 shadow" style="width: 400px;" (click)="$event.stopPropagation()">
+  <div class="position-absolute top-50 start-50 translate-middle bg-white rounded p-4 shadow details"  (click)="$event.stopPropagation()">
     <app-product-details></app-product-details>
   </div>
 </div>

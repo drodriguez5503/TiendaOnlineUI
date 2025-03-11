@@ -6,6 +6,7 @@ export interface Product {
   image: string;
   taxRate: number;
   currency: "USD"|"EUR"|"GBP";
+  username: string;
 }
 
 export type ProductRequest = Omit<Product,"id"> & {username: string};

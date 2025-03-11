@@ -4,6 +4,7 @@ import { Product } from '../../services/interfaces/product';
 import {NgClass, NgForOf, NgIf, NgOptimizedImage, NgStyle} from '@angular/common';
 import {ProdCommunicationService} from '../../services/communication/prod-communication.service';
 import {ProductDetailsComponent} from '../product-details/product-details.component';
+import {ActiveDetailsService} from '../../services/communication/active-details.service';
 
 
 @Component({
@@ -18,12 +19,15 @@ import {ProductDetailsComponent} from '../product-details/product-details.compon
 })
 export class TiendaComponent implements OnInit {
   products: Product[] = [];
-  prodDetails: boolean = false;
+  prodDetails: boolean | null = false;
 
 
   @ViewChild('productList', { static: false }) productList!: ElementRef;
+  @ViewChild('productList2', { static: false }) productList2!: ElementRef;
 
-  constructor(private productService: ProductService, private prodCommunication: ProdCommunicationService) { }
+  constructor(private productService: ProductService,
+              private prodCommunication: ProdCommunicationService,
+              private activeDetailsService: ActiveDetailsService,) { }
 
   ngOnInit(): void {
     this.productService.getAllProducts().subscribe({
@@ -32,6 +36,11 @@ export class TiendaComponent implements OnInit {
         console.log(this.products);
       }
     });
+
+    this.activeDetailsService.activeDetails$.subscribe(activeDetails => {
+      this.prodDetails = activeDetails;
+    })
+
   }
 
   productDetails(id: number): void {
@@ -43,13 +52,18 @@ export class TiendaComponent implements OnInit {
     this.prodDetails = false;
   }
 
-  scrollLeft(): void {
-    this.productList.nativeElement.scrollBy({ left: -200, behavior: 'smooth' });
+  scrollLeft(listprod:HTMLElement): void {
+    listprod.scrollBy({ left: -200, behavior: 'smooth' });
   }
 
-  scrollRight(): void {
-    this.productList.nativeElement.scrollBy({ left: 200, behavior: 'smooth' });
+  scrollRight(listprod: HTMLElement): void {
+    listprod.scrollBy({ left: 200, behavior: 'smooth' });
   }
+
+  scrollToProducts() {
+    document.getElementById("productCarousel")?.scrollIntoView({ behavior: "smooth" });
+  }
+
 
 
 }

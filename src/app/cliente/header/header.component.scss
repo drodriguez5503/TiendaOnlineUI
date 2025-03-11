@@ -10,3 +10,47 @@
     border-color: green !important;
   }
 }
+
+@media(max-width: 769px){
+  .nav-bar {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 60%;
+    bottom: 20px;
+    right: 2%;
+
+    .store {
+      padding: 0;
+      text-align: right;
+    }
+
+    nav {
+      margin:0;
+    }
+  }
+  .login {
+    display: none;
+  }
+}
+
+@media(max-width: 992px){
+  .nav-bar {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    bottom: 20px;
+    right: 2%;
+
+    .store {
+      padding: 0;
+      text-align: right;
+    }
+
+    nav {
+      margin:0;
+    }
+  }
+
+}

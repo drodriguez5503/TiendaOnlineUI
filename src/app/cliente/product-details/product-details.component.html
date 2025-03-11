@@ -1,6 +1,17 @@
-<div >
-  <img ngSrc="/img.png" [alt]="product?.name" class="product-image img-fluid" height="800" width="800">
-  <h3 class="product-title">{{ product?.name }}</h3>
-  <p class="product-price">{{product?.price}}{{product?.currency}}</p>
-  <button class="buy-btn">Comprar</button>
+<i class="bi bi-x position-absolute fs-2 end-0 top-0 fw-bolder text-muted" (click)="changeDetailsState()"></i>
+<div class="tarjeta bg-white">
+  <img ngSrc="/img.png" [alt]="product?.name" class="img-fluid" height="800" width="800">
+  <h3 class="product-title fw-bolder fs-2 text-center">{{ product?.name }}</h3>
+  <div class="d-flex justify-content-center">
+    <p class="text-center fs-3 text-success fw-bold">{{product?.price}}{{product?.currency}}</p>
+  </div>
+
+  <div class="mb-3 mt-0">
+    <h4 class="fs-4 text-start fw-bolder">Detalles del producto:</h4>
+    <p class="text-start">{{product?.description}}</p>
+    <p><span class=" fw-bolder">Vendedor: </span> {{product?.username}}</p>
+    <p><span class=" fw-bolder">Tasa de impuestos:</span> {{product?.taxRate}}</p>
+  </div>
+
+  <button class="d-block mx-auto btn btn-primary text-white fw-bolder text-center rounded-2">Añadir al carrito</button>
 </div>

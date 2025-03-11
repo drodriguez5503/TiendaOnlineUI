@@ -1,12 +1,5 @@
 .store-container {
   max-width: 1200px;
-  margin: auto;
-  padding: 20px;
-
-  .section-title {
-    text-align: center;
-    margin-bottom: 20px;
-  }
 
   .product-carousel {
     display: flex;
@@ -14,52 +7,22 @@
     position: relative;
 
     .arrow {
-      background: none;
-      border: none;
-      font-size: 2rem;
+      border:none;
       cursor: pointer;
-      position: absolute;
-      z-index: 2;
       width: 40px;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255, 255, 255, 0.8);
       transition: background 0.3s ease;
-
-      &:hover {
-        background: rgba(255, 255, 255, 1);
-      }
     }
 
-    .left {
-      left: 0;
-    }
-
-    .right {
-      right: 0;
-    }
 
     .product-list {
       display: flex;
       overflow-x: auto;
       scroll-behavior: smooth;
-      padding: 10px 0;
-      scrollbar-width: none; // Ocultar scrollbar en Firefox
+      scrollbar-width: none;
 
-      &::-webkit-scrollbar {
-        display: none; // Ocultar scrollbar en Chrome
-      }
 
       .product-card {
         min-width: 200px;
-        background: white;
-        border-radius: 10px;
-        padding: 10px;
-        text-align: center;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        margin: 0 10px;
         transition: transform 0.3s ease;
 
         &:hover {
@@ -70,7 +33,6 @@
           width: 100%;
           height: 150px;
           object-fit: contain;
-          margin-bottom: 10px;
         }
 
 
@@ -87,3 +49,46 @@
     }
   }
 }
+
+.banner {
+  background: url('/img.png') no-repeat center center/cover;
+  height: 300px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+@media (min-width: 1200px) {
+  .details {
+    width: 30%;
+  }
+
+}
+
+@media (min-width:756px) and ( max-width: 992px) {
+  .details {
+    height: 78%;
+    width: 70%;
+  }
+}
+
+@media (max-width: 756px) {
+  .details {
+    margin: auto;
+    height: 93%;
+    width: 90%;
+  }
+}
+
+.details {
+  overflow: hidden;
+  scrollbar-width: none;
+}
+
+
+
+
+

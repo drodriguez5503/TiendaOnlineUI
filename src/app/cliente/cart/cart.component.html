@@ -1,0 +1,54 @@
+<div class="container mt-4">
+  <div class="row column-gap-1">
+    <div class="col-12 col-lg-8">
+      <table class="table table-responsive">
+        <thead>
+        <tr>
+          <th class="d-none d-md-table-cell">Producto</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Total</th>
+          <th class="d-none d-md-table-cell">Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let product of cart; let i = index">
+          <td class="d-flex align-items-center">
+            <img src="/img.png" alt="Producto" class="img-thumbnail me-2" style="max-width: 50px;">
+            <div class="d-none d-md-block">
+              <span class="d-md-none"><strong>Producto:</strong></span> {{ product.name }}
+            </div>
+          </td>
+          <td>
+            <span class="d-none d-md-block"><strong>Precio:</strong></span> {{ product.price }} EUR
+          </td>
+          <td>
+            <span class="d-none d-md-block"><strong>Cantidad:</strong></span>
+            <input type="number" class="form-control" [(ngModel)]="cartItems[i].quantity" (change)="updateQuantity(product.id, cartItems[i].quantity)" min="1">
+          </td>
+          <td>
+            <span class="d-none d-md-block"><strong>Total:</strong></span> {{ product.price * cartItems[i].quantity }} EUR
+          </td>
+          <td>
+            <button class="btn btn-danger btn-sm d-md-none mt-2" (click)="removeProduct(i,product.id)"><i class="bi bi-trash fs-5 bg-danger text-white"></i></button>
+            <button class="btn btn-danger btn-sm d-none d-md-block" (click)="removeProduct(i, product.id)">Eliminar</button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-12 col-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Resumen del Carrito</h5>
+          <p>Subtotal: {{this.subtotal}} EUR</p>
+          <p>Envío: Gratis</p>
+          <p>Total: {{this.total}} EUR</p>
+          <button class="btn btn-success d-block mt-2" (click)="checkout()">Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--TODO COMPONENTE CHECKOUT Y CONECTAR ORDER Y ORDERITEMS CON EL BACK-->

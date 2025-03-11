@@ -9,6 +9,7 @@ import {ControlPanelComponent} from './backoffice/control-panel/control-panel.co
 import {ProfileComponent} from './backoffice/profile/profile.component';
 import {authGuard} from './services/guards/auth.guard';
 import {publicGuard} from './services/guards/public.guard';
+import {CartComponent} from './cliente/cart/cart.component';
 
 export const routes: Routes = [
   //cliente
@@ -17,6 +18,7 @@ export const routes: Routes = [
       {path:"login", component:LoginComponent, canActivate:[publicGuard]},
       {path:"registro", component:RegistroComponent,canActivate:[publicGuard]},
       {path:"tienda", component:TiendaComponent},
+      {path:"cart", component:CartComponent},
     ]},
 
   //backoffice
@@ -24,7 +26,6 @@ export const routes: Routes = [
       {path:"", redirectTo:"control-panel", pathMatch:"full"},
       {path:"control-panel", component: ControlPanelComponent},
       {path: "profile", component:ProfileComponent},
-
     ]}
 
 ];

@@ -1,5 +1,5 @@
 <div class="container my-4">
-  <div class="banner position-relative text-white text-center d-flex flex-column justify-content-center align-items-center">
+  <div class="banner d-flex justify-content-center align-items-center w-100 position-relative text-white text-center d-flex flex-column justify-content-center align-items-center">
     <h1 class="fw-bold">Bienvenido a Nuestra Tienda</h1>
     <p class="fs-4">Descubre los mejores productos al mejor precio</p>
     <button class="btn btn-warning fw-bold px-4 py-2 mt-2" (click)="scrollToProducts()">Ver Productos</button>
@@ -9,7 +9,7 @@
 
   <div class="store-container m-auto mt-4 p-3">
 
-    <h2 class="text-start mb-2 fw-bolder">Productos destacados: </h2>
+    <h2 class="text-center mb-2 fw-bolder h4">Productos destacados</h2>
     <div class="product-carousel">
       <button class="arrow fs-3 position-absolute z-2 h-100 d-flex align-items-center justify-content-center bg-white opacity-75 start-0" (click)="scrollLeft(productList)">
         &#10094;
@@ -20,7 +20,9 @@
             <img src="/img.png" [alt]="product.name" class="product-image mb-2">
             <h3 class="mx-1 fs-5">{{ product.name }}</h3>
             <p class="text-danger fw-bolder">{{ product.price}} {{product.currency}}</p>
-            <button class="buy-btn btn btn-primary px-2 py-1 text-white fw-bolder" (click)="$event.stopPropagation()">Añadir al carrito</button>
+            <div (click)="$event.stopPropagation()">
+              <button class="buy-btn btn btn-primary px-2 py-1 text-white fw-bolder" (click)="addToCart(product)">Añadir al carrito</button>
+            </div>
           </div>
         </div>
       </div>
@@ -31,7 +33,7 @@
   </div>
 
   <div class="store-container m-auto mt-5 p-3">
-    <h2 class="text-start mb-2 fw-bolder">Productos de electrónica: </h2>
+    <h2 class="text-center mb-2 fw-bolder h4">Productos de electrónica</h2>
     <div class="product-carousel" id="productCarousel">
       <button class="arrow fs-3 position-absolute z-2 h-100 d-flex align-items-center justify-content-center bg-white opacity-75 start-0" (click)="scrollLeft(productList2)">
         &#10094;
@@ -42,7 +44,9 @@
             <img src="/img.png" [alt]="product.name" class="product-image mb-2">
             <h3 class="mx-1 fs-5">{{ product.name }}</h3>
             <p class="text-danger fw-bolder">{{ product.price}} {{product.currency}}</p>
-            <button class="buy-btn btn btn-primary px-2 py-1 text-white fw-bolder" (click)="$event.stopPropagation()">Añadir al carrito</button>
+            <div (click)="$event.stopPropagation()">
+              <button class="buy-btn btn btn-primary px-2 py-1 text-white fw-bolder" (click)="addToCart(product)">Añadir al carrito</button>
+            </div>
           </div>
         </div>
       </div>
@@ -57,7 +61,7 @@
 
 
 <div *ngIf="prodDetails" class="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 z-3" (click)="closeDetails()">
-  <div class="position-absolute top-50 start-50 translate-middle bg-white rounded p-4 shadow details"  (click)="$event.stopPropagation()">
+  <div class="position-absolute top-50 start-50 translate-middle bg-white rounded p-4 shadow details slide-up"  (click)="$event.stopPropagation()">
     <app-product-details></app-product-details>
   </div>
 </div>

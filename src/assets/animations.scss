@@ -46,6 +46,17 @@
 
 }
 
+@keyframes slideUp  {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 * {
   transition: all .25s ease;
 }
@@ -60,4 +71,8 @@
 
 .slide-right-to-left {
   animation: slideToRight .50s ease-in;
+}
+
+.slide-up {
+  animation: slideUp .50s ease-in;
 }

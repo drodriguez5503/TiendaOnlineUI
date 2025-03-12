@@ -47,7 +47,11 @@ export class LoginComponent {
           this.tokenService.saveTokens(data.token,"fefefifrfijogsjosdfeof");
           this.useStateService.save(data.username,data.role);
           this.popUpService.close();
-          this.router.navigate(['/app/control-panel']);
+          if (data.role == "CLIENT") {
+            this.router.navigate(['/tienda']);
+          } else {
+            this.router.navigate(['/app/control-panel']);
+          }
         },1500)
       },
       error: err => {

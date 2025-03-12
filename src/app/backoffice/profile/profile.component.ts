@@ -1,59 +1,71 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForOf, NgIf} from '@angular/common';
-import Swal from 'sweetalert2';
 import {ToastrService} from 'ngx-toastr';
 import {Product} from '../../services/interfaces/product';
+import {ProductService} from '../../services/products/product.service';
+import {UseStateService} from '../../services/auth/use-state.service';
+import {CredentialsService} from '../../services/auth/credentials.service';
+import {AddProductFormComponent} from '../add-product-form/add-product-form.component';
+import {UserInterface} from '../../services/interfaces/auth';
+import {PopupService} from '../../services/utils/popup.service';
 
 @Component({
   selector: 'app-profile',
   imports: [
     NgIf,
-    NgForOf
+    NgForOf,
+    AddProductFormComponent
   ],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
-export class ProfileComponent {
+export class ProfileComponent implements OnInit {
   products : Product[] = [];
+  user: UserInterface | null = null;
+  productForm: boolean = false;
 
-  constructor(private toastr: ToastrService) {}
+
+
+  constructor(private toastr: ToastrService,
+              private productService: ProductService,
+              private useStateService:UseStateService,
+              private credentialsService:CredentialsService,
+              private popUpService: PopupService) {}
+
+  ngOnInit() {
+    if (this.useStateService.getUsername() != null) {
+      this.productService.getBySeller(<string>this.useStateService.getUsername()).subscribe(products => {
+        this.products = products as Product[];
+      })
+    }
+    this.credentialsService.getByUsername(<string>this.useStateService.getUsername()).subscribe(credentials => {
+      this.user = credentials;
+    })
+
+  }
 
   addProduct() {
-    Swal.fire({
-      title: 'Agregar Producto',
-      html: `<input id="productName" class="swal2-input" placeholder="Nombre del Producto">
-             <input id="productPrice" type="number" class="swal2-input" placeholder="Precio">`,
-      showCancelButton: true,
-      confirmButtonText: 'Agregar',
-      preConfirm: () => {
-        const name = (document.getElementById('productName') as HTMLInputElement).value;
-        const price = +(document.getElementById('productPrice') as HTMLInputElement).value;
-        if (!name || !price) {
-          Swal.showValidationMessage('Ambos campos son obligatorios');
-        }
-        return { name, price };
-      }
-    }).then((result) => {
-      if (result.isConfirmed && result.value) {
-        this.products.push(result.value);
-        this.toastr.success('Producto agregado con éxito', 'Éxito');
-      }
-    });
+    this.productForm = !this.productForm;
   }
 
   removeProduct(index: number) {
-    Swal.fire({
-      title: '¿Eliminar producto?',
-      text: 'Esta acción no se puede deshacer',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Sí, eliminar',
-      cancelButtonText: 'Cancelar'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.products.splice(index, 1);
-        this.toastr.info('Producto eliminado', 'Eliminado');
+    this.popUpService.showConfirmation(
+      "Atención!",
+      "Vas a eliminar un producto, quieres continuar?",
+    ).then((result) => {
+      if (result) {
+        console.log(result);
+        this.productService.deleteProduct(index).subscribe({
+          next: () => {
+            this.toastr.success("Producto eliminado correctamente.");
+          },
+
+          error: (error) => {
+            this.popUpService.showMessage("Ups, ha ocurrido un error!", error, "error")
+          }
+        })
       }
-    });
+    })
+
   }
 }

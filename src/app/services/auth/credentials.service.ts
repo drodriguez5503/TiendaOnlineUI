@@ -20,4 +20,8 @@ export class CredentialsService {
     return this.http.post<any>(`${enviroment.apiUrl}/users/register`, userData);
   }
 
+  getByUsername(username: string): Observable<any> {
+    return this.http.get(`${enviroment.apiUrl}/users/username?username=${username}`);
+  }
+
 }

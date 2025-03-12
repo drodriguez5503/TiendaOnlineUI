@@ -10,6 +10,7 @@ import {ProfileComponent} from './backoffice/profile/profile.component';
 import {authGuard} from './services/guards/auth.guard';
 import {publicGuard} from './services/guards/public.guard';
 import {CartComponent} from './cliente/cart/cart.component';
+import {userRoleGuard} from './services/guards/user-role.guard';
 
 export const routes: Routes = [
   //cliente
@@ -22,7 +23,7 @@ export const routes: Routes = [
     ]},
 
   //backoffice
-  {path:"app",canActivate:[authGuard],component: LayoutBackComponent, children: [
+  {path:"app",canActivate:[authGuard,userRoleGuard],component: LayoutBackComponent, children: [
       {path:"", redirectTo:"control-panel", pathMatch:"full"},
       {path:"control-panel", component: ControlPanelComponent},
       {path: "profile", component:ProfileComponent},

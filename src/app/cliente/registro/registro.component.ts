@@ -40,7 +40,11 @@ export class RegistroComponent {
         this.credentialsService.login(this.registerForm.value as UserInterface).subscribe({
           next: (data) => {
             this.tokenService.saveTokens(data.token,"dfdjifefieowffwief")
-            this.router.navigate(['/app/control-panel']);
+            if (data.role == "CLIENT") {
+              this.router.navigate(['/tienda']);
+            } else {
+              this.router.navigate(['/app/control-panel']);
+            }
           }
         })
       },

@@ -42,6 +42,7 @@ export class PopupService {
       title: title,
       text: message,
       icon: "question",
+      showCancelButton: true,
       confirmButtonText: confirmButtonText,
       cancelButtonText: cancelButtonText,
     })

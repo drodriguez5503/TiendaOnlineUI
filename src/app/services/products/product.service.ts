@@ -14,8 +14,8 @@ export class ProductService {
     return this.http.get(`${enviroment.apiUrl}/products`);
   }
 
-  getBySeller(sellerId: number) {
-    return this.http.get(`${enviroment.apiUrl}/products/user?id=${sellerId}`);
+  getBySeller(seller: string) {
+    return this.http.get(`${enviroment.apiUrl}/products/user?username=${seller}`);
   }
 
   getProductById(id: number) {

@@ -1,0 +1,46 @@
+
+<div class="container mt-4">
+  <div class="card shadow-lg p-4 bg-light">
+    <h2 class="card-title text-center text-primary fw-bolder mb-4">Añadir Producto</h2>
+    <form [formGroup]="form" (submit)="addProduct()" class="row g-3">
+
+      <div class="col-md-6">
+        <label for="name" class="form-label fw-bold">Nombre</label>
+        <input type="text" id="name" class="form-control" formControlName="name" placeholder="Nombre del producto">
+      </div>
+
+      <div class="col-md-6">
+        <label for="price" class="form-label fw-bold">Precio</label>
+        <input type="number" id="price" class="form-control" formControlName="price" placeholder="Precio">
+      </div>
+
+      <div class="col-12">
+        <label for="description" class="form-label fw-bold">Descripción</label>
+        <textarea id="description" class="form-control" formControlName="description" rows="3" placeholder="Descripción del producto"></textarea>
+      </div>
+
+      <div class="col-md-6">
+        <label for="taxRate" class="form-label fw-bold">Tasa de impuesto (%)</label>
+        <input type="number" id="taxRate" class="form-control" formControlName="taxRate" placeholder="Ej: 10">
+      </div>
+
+      <div class="col-md-6">
+        <label for="currency" class="form-label fw-bold">Moneda</label>
+        <select id="currency" class="form-select" formControlName="currency">
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+          <option value="GBP">GBP</option>
+        </select>
+      </div>
+
+      <div class="col-12">
+        <label for="image" class="form-label fw-bold">URL de la imagen</label>
+        <input type="text" id="image" class="form-control" formControlName="image" placeholder="Ingrese la URL de la imagen">
+      </div>
+
+      <div class="col-12 text-center">
+        <button type="submit" class="btn btn-primary fw-bold px-5">Agregar Producto</button>
+      </div>
+    </form>
+  </div>
+</div>

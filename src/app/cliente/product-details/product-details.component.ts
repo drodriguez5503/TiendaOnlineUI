@@ -4,6 +4,8 @@ import {ProductService} from '../../services/products/product.service';
 import {Product} from '../../services/interfaces/product';
 import {NgOptimizedImage} from '@angular/common';
 import {ActiveDetailsService} from '../../services/communication/active-details.service';
+import {CartService} from '../../services/products/cart-service.service';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-details',
@@ -20,7 +22,9 @@ export class ProductDetailsComponent implements OnInit {
 
   constructor(private prodCommunicationService: ProdCommunicationService,
               private productService: ProductService,
-              private activeDetailsService: ActiveDetailsService) {
+              private activeDetailsService: ActiveDetailsService,
+              private cartService: CartService,
+              private toastr: ToastrService) {
   }
 
 
@@ -47,5 +51,20 @@ export class ProductDetailsComponent implements OnInit {
     console.log(this.activeDetails);
   }
 
+  addToCart(product: Product| null): void {
+    if(!product) {
+      return;
+    }
+
+    this.cartService.addToCart(product);
+    this.toastr.success(`${product.name} añadido al carrito`, 'Producto agregado', {
+      positionClass: 'toast-top-right',
+      tapToDismiss: true,
+      progressBar: true,
+      newestOnTop: true,
+      disableTimeOut: false,
+      closeButton: true,
+    });
+  }
 
 }

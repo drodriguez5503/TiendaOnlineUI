@@ -6,3 +6,10 @@
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+
+
+@media (max-width: 766px) {
+  .toast-top-right {
+    display:none;
+  }
+}

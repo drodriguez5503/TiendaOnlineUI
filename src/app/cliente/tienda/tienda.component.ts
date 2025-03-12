@@ -72,6 +72,7 @@ export class TiendaComponent implements OnInit {
       progressBar: true,
       newestOnTop: true,
       disableTimeOut: false,
+      closeButton: true,
     });
   }
 

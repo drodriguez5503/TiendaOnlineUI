@@ -14,7 +14,12 @@ export const appConfig: ApplicationConfig = {
         tokenInterceptor
       ])
     ), provideAnimations(),
-    provideToastr()
+    provideToastr(
+      {maxOpened:1,
+        preventDuplicates: true,
+        autoDismiss: true
+      }
+    )
 
   ]
 };

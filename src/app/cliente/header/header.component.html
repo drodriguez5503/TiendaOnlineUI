@@ -1,11 +1,11 @@
 
-<header class="bg-dark row position-sticky top-0 z-3 py-2">
+<header class="bg-dark row position-sticky top-0 py-2 z-3">
   <div class="col-lg-5 col-1 text-right">
     <a class="text-decoration-none d-block ms-5 mt-3 mb-2" rel="noopener" href="">
       <img ngSrc="/favicon.ico" alt="logo" [width]="50" [height]="50">
     </a>
   </div>
-  <div class="col-lg-7 col-9 overflow-hidden d-flex align-items-center justify-content-end nav-bar">
+  <div class="col-lg-7 col-9 d-flex align-items-center justify-content-end nav-bar">
     <nav class="d-flex flex-row flex-nowrap align-items-end justify-content-center me-2">
       <div class="d-flex align-items-center">
         <a class="text-white text-decoration-none py-2 px-4 d-none d-md-inline mx-auto" rel="noopener" href="">Inicio</a>
@@ -18,10 +18,10 @@
       </button>
 
 
-      <div class="imagen-perfil rounded-circle position-relative bg-white d-flex ms-2 align-items-center justify-content-center" (click)="toggleItem()" *ngIf="token">
+      <div class="imagen-perfil rounded-circle position-relative bg-white d-flex ms-2 align-items-center justify-content-center z-3" (click)="toggleItem()" *ngIf="token">
         <i class="bi bi-person-fill text-black fs-5"></i>
         <span class="bg-success rounded-circle border border-2 position-absolute z-2"></span>
-        <app-client-header-user *ngIf="userActive"></app-client-header-user>
+        <app-client-header-user *ngIf="userActive" class="z-3"></app-client-header-user>
       </div>
 
     </nav>

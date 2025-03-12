@@ -1,143 +1,29 @@
 
-<div class="container-fluid bg-light max-vh-75 mt-3 overflow-hidden">
-
-  <nav class="position-sticky navbar navbar-light bg-white shadow-sm px-4 z-2">
-    <div class="d-flex align-items-center gap-2">
-      <div class="search-bar position-relative d-flex align-items-center">
-        <i class="bi bi-search position-absolute"></i>
-        <input type="text" placeholder="Search" class="form-control rounded-5" (click)="showSearchModal()">
+<div class="container my-4">
+  <div class="card p-4 shadow-sm">
+    <div class="d-flex align-items-center">
+      <img src="/img.png" class="rounded-circle me-3" width="80" height="80" alt="User Avatar">
+      <div>
+        <h4 class="fw-bold">Bernadette</h4>
+        <p class="text-muted mb-1">Product Lead, CEO</p>
+        <p class="mb-0"><i class="bi bi-geo-alt"></i> 9034 Jacquelyn ton</p>
+        <p class="mb-0"><i class="bi bi-telephone"></i> +1 234567890</p>
+        <p class="mb-0"><i class="bi bi-envelope"></i> bernadette&#64;gmail.com</p>
       </div>
     </div>
-
-    <div class="d-flex align-items-center gap-3">
-      <div class="rounded-3 no-molestar">
-        <i class="bi bi-moon-fill fs-5 fw-bolder text-muted me-4"></i>
-        <i class="bi bi-flag-fill fs-5 fw-bolder text-muted"></i>
-      </div>
-      <div class="rounded-3 no-molestar d-flex justify-content-center px-3">
-        <div class="rounded-circle position-relative bg-white d-flex align-items-center justify-content-center px-2" (click)="toggleUser()">
-          <i class="bi bi-person-fill text-black fs-5"></i>
-        </div>
-        <app-user-tab *ngIf="this.ActiveUser" ></app-user-tab>
-      </div>
-    </div>
-  </nav>
-
-  <div *ngIf="isSearchModalOpen" class="position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 z-3" (click)="hideSearchModal()">
-    <div class="position-absolute top-50 start-50 translate-middle bg-white rounded p-4 shadow" style="width: 400px;" (click)="$event.stopPropagation()">
-      <app-profile-modal></app-profile-modal>
-    </div>
+    <button class="btn btn-primary mt-3">Add to Cardholder</button>
   </div>
 
-
-  <div class="row m-4">
-
-    <div class="col-md-3 coworker">
-      <div class="card p-3">
-        <h5 class="bg-white shadow-sm rounded-2 py-3 px-2">Co-workers</h5>
-        <ul class="list-unstyled mt-2">
-          <li class="d-flex align-items-center gap-2 mb-2 shadow-sm bg-white rounded-3 py-3">
-            <div class="rounded-circle position-relative bg-white d-flex align-items-center justify-content-center">
-              <i class="bi bi-person-fill text-black fs-5 mx-2"></i>
-            </div>
-            Irene
-          </li>
-          <li class="d-flex align-items-center gap-2 mb-2 shadow-sm bg-white rounded-3 py-3">
-            <div class="rounded-circle position-relative bg-white d-flex align-items-center justify-content-center">
-              <i class="bi bi-person-fill text-black fs-5 mx-2"></i>
-            </div>
-            Michael
-          </li>
-          <li class="d-flex align-items-center gap-2 mb-2 shadow-sm bg-white rounded-3 py-3">
-            <div class="rounded-circle position-relative bg-white d-flex align-items-center justify-content-center">
-              <i class="bi bi-person-fill text-black fs-5 mx-2"></i>
-            </div>
-            Sara
-          </li>
-          <li class="d-flex align-items-center gap-2 mb-2 shadow-sm bg-white rounded-3 py-3">
-            <div class="rounded-circle position-relative bg-white d-flex align-items-center justify-content-center">
-              <i class="bi bi-person-fill text-black fs-5 mx-2"></i>
-            </div>
-            Yovanny
-          </li>
-          <li class="d-flex align-items-center gap-2 mb-2 shadow-sm bg-white rounded-3 py-3">
-            <div class="rounded-circle position-relative bg-white d-flex align-items-center justify-content-center">
-              <i class="bi bi-person-fill text-black fs-5 mx-2"></i>
-            </div>
-            Gabriel
-          </li>
-        </ul>
+  <!-- Productos del Usuario -->
+  <div class="mt-4">
+    <h5 class="fw-bold">Mis Productos</h5>
+    <div *ngIf="products.length === 0" class="alert alert-warning">No hay productos agregados.</div>
+    <div class="list-group">
+      <div class="list-group-item d-flex justify-content-between align-items-center" *ngFor="let product of products; let i = index">
+        {{ product.name }} - {{ product.price}}
+        <button class="btn btn-danger btn-sm" (click)="removeProduct(i)"><i class="bi bi-trash"></i></button>
       </div>
     </div>
-
-
-    <div class="col-md-6 main-feed">
-
-      <div class="card p-3 mb-4 mt-3">
-        <div class="d-flex gap-2">
-          <div class="rounded-circle position-relative bg-white d-flex align-items-center justify-content-center">
-            <i class="bi bi-person-fill text-black fs-5 mx-2"></i>
-          </div>
-          <input type="text" class="form-control" placeholder="Any new tasks?" />
-        </div>
-        <div class="mt-3 d-flex align-items-center justify-content-between row">
-          <p class="col-3 post-option rounded-2"><span><i class="bi bi-camera-video-fill text-info fs-5"></i></span> Meeting</p>
-          <p class="col-3 post-option rounded-2"><span><i class="bi bi-image-fill text-danger fs-5"></i></span> Picture</p>
-          <p class="col-3 post-option rounded-2"><span><i class="bi bi-calendar-date text-muted fs-5"></i></span> Event</p>
-          <p class="col-3 post-option rounded-2"><span><i class="bi bi-question-lg text-warning fs-5"></i></span> Problems</p>
-        </div>
-      </div>
-
-      <div class="card p-3 my-2">
-        <div class="d-flex gap-2 align-items-center">
-          <div class="rounded-circle position-relative bg-white d-flex align-items-center justify-content-center">
-            <i class="bi bi-person-fill text-black fs-5 mx-2"></i>
-          </div>
-          <div>
-            <h6 class="mb-0">Ignacio</h6>
-            <small class="text-muted">&#64;ignawork02 - 1h ago</small>
-          </div>
-        </div>
-        <p class="mt-2">Had a problem with the UI at control-panel can anyone take a look at it?</p>
-        <img src="/example_post_pic.png" class="w-100 rounded mt-2" />
-      </div>
-      <div class="card p-3 my-2">
-        <div class="d-flex gap-2 align-items-center">
-          <div class="rounded-circle position-relative bg-white d-flex align-items-center justify-content-center">
-            <i class="bi bi-person-fill text-black fs-5 mx-2"></i>
-          </div>
-          <div>
-            <h6 class="mb-0">Ignacio</h6>
-            <small class="text-muted">&#64;ignawork02 - 1h ago</small>
-          </div>
-        </div>
-        <p class="mt-2">Had a problem with the UI at control-panel can anyone take a look at it?</p>
-        <img src="/example_post_pic.png" class="w-100 rounded mt-2" />
-      </div>
-    </div>
-
-
-    <div class="col-md-3 notifications">
-      <div class="card p-3 bg-white mt-3">
-        <h5>Notifications</h5>
-        <ul class="list-unstyled mt-2">
-          <li class="d-flex gap-2 mb-2">
-            <div class="rounded-circle position-relative bg-white d-flex align-items-center justify-content-center">
-              <i class="bi bi-person-fill text-black fs-5 mx-2"></i>
-            </div> Co-worker posted a new task
-          </li>
-          <li class="d-flex gap-2 mb-2">
-            <div class="rounded-circle position-relative bg-white d-flex align-items-center justify-content-center">
-              <i class="bi bi-person-fill text-black fs-5 mx-2"></i>
-            </div> Meeting scheduled for friday
-          </li>
-          <li class="d-flex gap-2 mb-2">
-            <div class="rounded-circle position-relative bg-white d-flex align-items-center justify-content-center">
-              <i class="bi bi-person-fill text-black fs-5 mx-2"></i>
-            </div> David fixed your reported issue
-          </li>
-        </ul>
-      </div>
-    </div>
+    <button class="btn btn-success mt-3" (click)="addProduct()">Agregar Producto</button>
   </div>
 </div>

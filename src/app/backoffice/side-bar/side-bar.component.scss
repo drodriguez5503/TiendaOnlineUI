@@ -15,8 +15,6 @@
 }
 
 .main-container {
-  overflow-x: hidden;
-  overflow-y: auto;
   border-bottom: #8f1e00;
   border-style: dashed;
   h2 {
@@ -60,7 +58,7 @@
 }
 
 .log-off {
-  bottom: 20px;
+  bottom: 10%;
   cursor: pointer;
 
   h2 {

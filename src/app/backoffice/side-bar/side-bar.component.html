@@ -1,53 +1,49 @@
-<div class="bg-dark h-100 d-flex flex-column justify-content-between" [class.hide-me]="!isActiveSidebar">
-  <div class="top-section ">
-  <div class="main-container d-flex flex-column justify-content-end">
-    <h2 class="text-danger h6 small fw-bolder mx-2">MAIN</h2>
+<div class="bg-dark z-3 h-100 position-sticky end-0 d-flex flex-column justify-content-between" [class.hide-me]="!isActiveSidebar">
 
-    <div class="option position-relative my-1 d-flex flex-row column-gap-1 align-items-center justify-content-end" routerLink="control-panel">
-      <p class="position-relative text-white text-right small">Inicio</p>
-      <i class="bi bi-house-door-fill fs-5 position-relative text-white mx-1"></i>
+  <div class="">
+    <div class="main-container d-flex flex-column justify-content-end">
+      <h2 class="text-danger h6 small fw-bolder mx-2">MAIN</h2>
+
+      <div class="option position-relative my-1 d-flex flex-row column-gap-1 align-items-center justify-content-end" routerLink="control-panel">
+        <p class="position-relative text-white text-right small">Inicio</p>
+        <i class="bi bi-house-door-fill fs-5 position-relative text-white mx-1"></i>
+      </div>
+
+      <div class="option position-relative my-1 d-flex flex-row column-gap-1 align-items-center justify-content-end" routerLink="profile">
+        <p class="position-relative text-white text-right small">Perfil</p>
+        <i class="bi bi-person-badge-fill fs-5 position-relative text-white mx-1"></i>
+      </div>
+
+      <div class="option position-relative my-1 d-flex flex-row column-gap-1 align-items-center justify-content-end" routerLink="/tienda">
+        <p class="position-relative text-white text-right small">Productos</p>
+        <i class="bi bi-cart-fill fs-5 position-relative text-white mx-1"></i>
+      </div>
+
     </div>
 
-    <div class="option position-relative my-1 d-flex flex-row column-gap-1 align-items-center justify-content-end" routerLink="profile">
-      <p class="position-relative text-white text-right small">Perfil</p>
-      <i class="bi bi-person-badge-fill fs-5 position-relative text-white mx-1"></i>
+    <div class="socials d-flex flex-column justify-content-end mt-2">
+      <h2 class="text-danger h6 small fw-bolder mx-2">NUESTRAS REDES</h2>
+
+      <div class="option position-relative my-1 d-flex flex-row column-gap-1 align-items-center justify-content-end">
+        <p class="position-relative text-white text-right small">&#64;TiendaOnlineIG</p>
+        <i class="bi bi-instagram fs-5 position-relative text-white mx-1"></i>
+      </div>
+
+      <div class="option position-relative my-1 d-flex flex-row column-gap-1 align-items-center justify-content-end">
+        <p class="position-relative text-white text-right small">&#64;TiendaOnlineFB</p>
+        <i class="bi bi-facebook fs-5 position-relative text-white mx-1"></i>
+      </div>
+
+      <div class="option position-relative my-1 d-flex flex-row column-gap-1 align-items-center justify-content-end">
+        <p class="position-relative text-white text-right small">&#64;TwitterTiendaOnline</p>
+        <i class="bi bi-twitter-x fs-5 position-relative text-white mx-1"></i>
+      </div>
+
+      <div class="option position-relative my-1 d-flex flex-row column-gap-1 align-items-center justify-content-end">
+        <p class="position-relative text-white text-right small">tiendaOnline&#64;gmail.com</p>
+        <i class="bi bi-envelope-fill fs-5 position-relative text-white mx-1"></i>
+      </div>
     </div>
-
-    <div class="option position-relative my-1 d-flex flex-row column-gap-1 align-items-center justify-content-end">
-      <p class="position-relative text-white text-right small">Cambiar Contraseña</p>
-      <i class="bi bi-lock-fill fs-5 position-relative text-white mx-1"></i>
-    </div>
-
-    <div class="option position-relative my-1 d-flex flex-row column-gap-1 align-items-center justify-content-end" routerLink="/tienda">
-      <p class="position-relative text-white text-right small">Productos</p>
-      <i class="bi bi-cart-fill fs-5 position-relative text-white mx-1"></i>
-    </div>
-
-  </div>
-
-  <div class="socials d-flex flex-column justify-content-end mt-2">
-    <h2 class="text-danger h6 small fw-bolder mx-2">NUESTRAS REDES</h2>
-
-    <div class="option position-relative my-1 d-flex flex-row column-gap-1 align-items-center justify-content-end">
-      <p class="position-relative text-white text-right small">&#64;TiendaOnlineIG</p>
-      <i class="bi bi-instagram fs-5 position-relative text-white mx-1"></i>
-    </div>
-
-    <div class="option position-relative my-1 d-flex flex-row column-gap-1 align-items-center justify-content-end">
-      <p class="position-relative text-white text-right small">&#64;TiendaOnlineFB</p>
-      <i class="bi bi-facebook fs-5 position-relative text-white mx-1"></i>
-    </div>
-
-    <div class="option position-relative my-1 d-flex flex-row column-gap-1 align-items-center justify-content-end">
-      <p class="position-relative text-white text-right small">&#64;TwitterTiendaOnline</p>
-      <i class="bi bi-twitter-x fs-5 position-relative text-white mx-1"></i>
-    </div>
-
-    <div class="option position-relative my-1 d-flex flex-row column-gap-1 align-items-center justify-content-end">
-      <p class="position-relative text-white text-right small">tiendaOnline&#64;gmail.com</p>
-      <i class="bi bi-envelope-fill fs-5 position-relative text-white mx-1"></i>
-    </div>
-  </div>
 
   </div>
 

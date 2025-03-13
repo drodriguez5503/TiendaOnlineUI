@@ -87,9 +87,15 @@ export class CartComponent implements OnInit {
   }
 
   checkout() {
-    this.toastr.info('Redirigiendo al checkout...', 'Información',{
-      timeOut: 1000,
-    });
+    if (this.cartItems.length > 0) {
+      this.toastr.info('Redirigiendo al checkout...', 'Información', {
+        timeOut: 1000,
+      });
+    } else {
+      this.toastr.error('Añade productos al carrito primero', 'Error', {
+        timeOut: 1000,
+      })
+    }
 
     this.totalService.changeTotal(this.total);
     this.orderActive = true;

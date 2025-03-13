@@ -1,20 +1,27 @@
 
 <div class="container my-4">
-  <div class="card p-4 shadow-sm">
-    <div class="d-flex align-items-center">
-      <img src="/img.png" class="rounded-circle me-3" width="80" height="80" alt="User Avatar">
-      <div>
-        <h4 class="fw-bold">{{user?.username}}</h4>
-        <p class="text-muted mb-1"></p>
+  <div class="p-4 shadow-lg w-75 mx-auto d-flex row g-0">
+    <div class="d-flex justify-content-center align-items-center col-md-7 col-12 row">
+      <div class="rounded-2 shadow-lg p-3 col-12 col-md-4 d-flex justify-content-center mx-auto my-auto">
+        <img src="/img.png" class="rounded-2 img-fluid" width="150" height="150" alt="User Avatar">
+      </div>
+      <div class="col-12 col-md-6 mt-2">
+        <h4 class="fw-bold fs-5">{{user?.firstName}} {{user?.lastName}}</h4>
         <div>
-          <p class="mb-0"><i class="bi bi-geo-alt"></i> 9034 Jacquelyn ton</p>
-          <p class="mb-0"><i class="bi bi-telephone"></i> +1 234567890</p>
-          <p class="mb-0"><i class="bi bi-envelope"></i> bernadette&#64;gmail.com</p>
-          <p></p>
+          <p class="mb-2"><i class="bi bi-person-fill text-muted"></i> {{user?.username}}</p>
+          <p class="mb-2"><i class="bi bi-geo-alt text-success"></i> {{user?.address}}</p>
+          <p class="mb-2"><i class="bi bi-calendar-fill text-info"></i> Miembro desde: {{user?.createdAt}}</p>
+          <p class="mb-2"><i class="bi bi-briefcase-fill text-primary"></i> {{user?.roleName}}</p>
         </div>
       </div>
     </div>
-    <button class="btn btn-primary mt-3">Add to Cardholder</button>
+
+    <div class="vr mx-4 col-1 bg-dark text-dark d-none d-md-block"></div>
+
+    <div class="ms-4 col-md-3 col-12 d-block mt-5 mx-auto my-auto row">
+      <h6 class="text-center fs-6 mt-2 fw-bolder col-12">Cambiar contraseña</h6>
+      <button class="d-block btn btn-primary text-white fw-bolder mx-auto col-5" (click)="changePassword()">Editar perfil</button>
+    </div>
   </div>
 
   <div class="mt-4 mx-auto">
@@ -37,7 +44,7 @@
         </td>
         <td>{{product.price}} {{product.currency}}</td>
         <td>
-          <button class="btn btn-danger btn-sm" (click)="removeProduct(product.id)"><i class="bi bi-trash"></i> Eliminar</button>
+          <button class="btn btn-danger btn-sm" (click)="removeProduct(product.id, i)"><i class="bi bi-trash"></i> Eliminar</button>
         </td>
       </tr>
       </tbody>
@@ -51,3 +58,5 @@
     <app-add-product-form></app-add-product-form>
   </div>
 </div>
+
+

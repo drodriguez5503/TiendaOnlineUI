@@ -8,3 +8,5 @@ export interface UserInterface {
 }
 
 export type LoginInterface = Pick<UserInterface,"username" | "password">
+export type UserInfo = Omit<UserInterface,"password"> & {createdAt : Date}
+export type PasswordChange = Pick<UserInterface,"password" | "username"> & {newPassword: string};

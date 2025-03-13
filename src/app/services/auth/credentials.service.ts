@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {enviroment} from '../../../enviroments/enviroment';
-import {LoginInterface, UserInterface} from '../interfaces/auth';
+import {LoginInterface, PasswordChange, UserInterface} from '../interfaces/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +22,14 @@ export class CredentialsService {
 
   getByUsername(username: string): Observable<any> {
     return this.http.get(`${enviroment.apiUrl}/users/username?username=${username}`);
+  }
+
+  getUserInfo(username:string): Observable<any> {
+    return this.http.get(`${enviroment.apiUrl}/users/info?username=${username}`);
+  }
+
+  changePassword(passwordChange:PasswordChange): Observable<any> {
+    return this.http.patch(`${enviroment.apiUrl}/users/password`, passwordChange);
   }
 
 }

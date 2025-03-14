@@ -7,6 +7,7 @@ import {TiendaComponent} from './cliente/tienda/tienda.component';
 import {LayoutBackComponent} from './backoffice/layoutBack/layoutBack.component';
 import {ControlPanelComponent} from './backoffice/control-panel/control-panel.component';
 import {ProfileComponent} from './backoffice/profile/profile.component';
+import {ProfileClienteComponent} from './cliente/profile-cliente/profile-cliente.component';
 import {authGuard} from './services/guards/auth.guard';
 import {publicGuard} from './services/guards/public.guard';
 import {CartComponent} from './cliente/cart/cart.component';
@@ -20,6 +21,7 @@ export const routes: Routes = [
       {path:"registro", component:RegistroComponent,canActivate:[publicGuard]},
       {path:"tienda", component:HomeComponent},
       {path:"cart", component:CartComponent},
+      {path:"profile",component: ProfileClienteComponent},
     ]},
 
   //backoffice

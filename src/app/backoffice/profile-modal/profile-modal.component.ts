@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-profile-modal',
+  selector: 'app-profile-cliente-modal',
   imports: [],
   templateUrl: './profile-modal.component.html',
   styleUrl: './profile-modal.component.scss'

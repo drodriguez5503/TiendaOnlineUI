@@ -1,0 +1,25 @@
+.product-card {
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.product-card img {
+  max-height: 100px;
+  object-fit: cover;
+}
+
+.add {
+  position: relative;
+  right: 0;
+}
+
+.btn:hover {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.vr {
+  width: 5px
+}

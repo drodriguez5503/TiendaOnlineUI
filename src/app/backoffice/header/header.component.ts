@@ -6,6 +6,7 @@ import {TabDashboardComponent} from '../tabs/tab-dashboard/tab-dashboard.compone
 import {SidebarStatusService} from '../../services/status/sidebar-status.service';
 import {AppSettingsComponent} from '../tabs/app-settings/app-settings.component';
 import {ActiveItems} from '../../services/interfaces/active-items';
+import {RouterLink} from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,8 @@ import {ActiveItems} from '../../services/interfaces/active-items';
     TabNotificationComponent,
     TabUserComponent,
     TabDashboardComponent,
-    AppSettingsComponent
+    AppSettingsComponent,
+    RouterLink
   ],
   templateUrl: './header.component.html',
   standalone: true,

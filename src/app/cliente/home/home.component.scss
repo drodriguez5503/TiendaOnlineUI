@@ -1,0 +1,46 @@
+.product-card {
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  .product-image {
+    width: 100%;
+    object-fit: contain;
+  }
+
+
+  .buy-btn {
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+
+    &:hover {
+      background: #e68a00;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .details {
+    width: 30%;
+  }
+
+}
+
+@media (min-width:756px) and ( max-width: 992px) {
+  .details {
+    height: 78%;
+    width: 70%;
+  }
+}
+
+@media (max-width: 756px) {
+  .details {
+    margin: auto;
+    height: 93%;
+    width: 90%;
+  }
+}
+

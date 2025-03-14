@@ -15,10 +15,10 @@ import {userRoleGuard} from './services/guards/user-role.guard';
 export const routes: Routes = [
   //cliente
   {path:"",component: LayoutComponent, children: [
-      {path:"", component:HomeComponent},
+      {path:"", component:TiendaComponent},
       {path:"login", component:LoginComponent, canActivate:[publicGuard]},
       {path:"registro", component:RegistroComponent,canActivate:[publicGuard]},
-      {path:"tienda", component:TiendaComponent},
+      {path:"tienda", component:HomeComponent},
       {path:"cart", component:CartComponent},
     ]},
 

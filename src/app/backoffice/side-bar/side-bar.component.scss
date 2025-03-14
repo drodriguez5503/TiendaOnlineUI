@@ -1,3 +1,8 @@
+.side-bar {
+  position: fixed;
+  top: 70px;
+}
+
 .hide-me {
   p {
     display: none;
@@ -58,7 +63,6 @@
 }
 
 .log-off {
-  bottom: 10%;
   cursor: pointer;
 
   h2 {

@@ -29,7 +29,7 @@ export class CredentialsService {
   }
 
   changePassword(passwordChange:PasswordChange): Observable<any> {
-    return this.http.patch(`${enviroment.apiUrl}/users/password`, passwordChange);
+    return this.http.post(`${enviroment.apiUrl}/users/password`, passwordChange, {responseType: 'text'});
   }
 
 }

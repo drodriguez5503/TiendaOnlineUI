@@ -2,10 +2,35 @@
   width: 100%;
   height: calc(100dvh - 70px);
   display: grid;
-  grid-template-columns: 1fr 200px;
+
+  &:not(.collapsed) {
+    grid-template-columns: 1fr 200px !important;
+
+    @media (max-width: 576px) {
+
+      grid-template-columns: 1fr !important;
+
+      .sidebar {
+        width: 200px;
+        position: fixed;
+        right: 0;
+        top: 0;
+        bottom: 0;
+      }
+    }
+  }
 
   &.collapsed {
     grid-template-columns: 1fr 50px !important;
+
+  }
+
+  .hidden {
+    overflow-x: hidden !important;
+  }
+
+  .router-outlet {
+    margin-top: 80px;
   }
 }
 

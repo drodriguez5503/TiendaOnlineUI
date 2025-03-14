@@ -44,7 +44,7 @@ export class ProfileComponent implements OnInit {
       next: (data) => {
         this.user = data as UserInfo;
         this.user.roleName = data.role;
-        this.user.createdAt = data.createdAt;
+        this.user.createdAt = data.createdAt.split('T')[0];
         console.log(this.user);
 
       },
@@ -106,11 +106,13 @@ export class ProfileComponent implements OnInit {
         }
 
         this.credentialsService.changePassword(changePassword).subscribe({
-          next: () => {
+          next: (data) => {
+            console.log(data)
             this.toastr.success("Contraseña cambiada","Exito!")
           },
           error: (error) => {
-            this.popUpService.showMessage("Ups, ha ocurrido un error!", error, "error");
+            this.popUpService.showMessage("Ups, ha ocurrido un error!", '', "error");
+            console.log(error);
           }
         })
       }

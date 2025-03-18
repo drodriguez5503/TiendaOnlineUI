@@ -32,16 +32,17 @@
   </div>
 
   <div class="mt-4 mx-auto">
-    <h5 class="fw-bold text-center">Mis Productos</h5>
-    <div *ngIf="products.length === 0" class="alert alert-warning">No hay pedidos agregados.</div>
+    <h5 class="fw-bold text-center">Mis Pedidos</h5>
+    <div *ngIf="orders.length === 0" class="alert alert-warning">No hay pedidos agregados.</div>
     <table class="table table-responsive mt-3 w-75 mx-auto">
       <tbody>
-      <tr *ngFor="let product of products; let i = index">
+      <tr *ngFor="let order of orders; let i = index">
         <td class="d-flex align-items-center">
           <img src="/img.png" alt="Producto" class="img-thumbnail me-2" style="max-width: 50px;">
-          {{product.name}}
+          {{order.id}}
         </td>
-        <td>{{product.price}} {{product.currency}}</td>
+        <td>{{order.username}}</td>
+        <td>{{order.amount}} EUR</td>
       </tr>
       </tbody>
     </table>

@@ -8,6 +8,9 @@ import {UseStateService} from '../../services/auth/use-state.service';
 import {CredentialsService} from '../../services/auth/credentials.service';
 import {PopupService} from '../../services/utils/popup.service';
 import Swal from 'sweetalert2';
+import {OrderService} from '../../services/orders/order.service';
+import {Order} from '../../services/interfaces/order';
+
 
 @Component({
   selector: 'app-profile-cliente',
@@ -19,23 +22,28 @@ import Swal from 'sweetalert2';
   styleUrl: './profile-cliente.component.scss'
 })
 export class ProfileClienteComponent implements OnInit {
-  products : Product[] = [];
+  orders : Order[] = [];
   user: UserInfo | any;
 
 
 
 
   constructor(private toastr: ToastrService,
-              private productService: ProductService,
               private useStateService:UseStateService,
               private credentialsService:CredentialsService,
-              private popUpService: PopupService) {}
+              private popUpService: PopupService,
+              private orderService: OrderService) {}
 
   ngOnInit(){
     if (this.useStateService.getUsername() != null) {
-      this.productService.getBySeller(<string>this.useStateService.getUsername()).subscribe(products => {
-        this.products = products as Product[];
-      })
+     this.orderService.getOrdersByUserId(<string>this.useStateService.getUsername()).subscribe({
+       next: (data) => {
+         this.orders = data
+       },
+        error: (error) => {
+         console.error(error);
+        }
+     })
     }
     this.credentialsService.getUserInfo(<string>this.useStateService.getUsername()).subscribe({
       next: (data) => {

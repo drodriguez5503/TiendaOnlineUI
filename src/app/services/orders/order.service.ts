@@ -17,4 +17,8 @@ export class OrderService {
   addOrder(order: OrderRequest) {
     return this.http.post<Order>(`${enviroment.apiUrl}/orders/create`, order);
   }
+
+  getOrdersByUserId(username: string) {
+    return this.http.get<Order[]>(`${enviroment.apiUrl}/orders/user?username=${username}`);
+  }
 }

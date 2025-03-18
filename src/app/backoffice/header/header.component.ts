@@ -7,6 +7,7 @@ import {SidebarStatusService} from '../../services/status/sidebar-status.service
 import {AppSettingsComponent} from '../tabs/app-settings/app-settings.component';
 import {ActiveItems} from '../../services/interfaces/active-items';
 import {RouterLink} from '@angular/router';
+import {CartService} from '../../services/products/cart-service.service';
 
 
 @Component({
@@ -18,31 +19,31 @@ import {RouterLink} from '@angular/router';
     TabUserComponent,
     TabDashboardComponent,
     AppSettingsComponent,
-    RouterLink
   ],
   templateUrl: './header.component.html',
   standalone: true,
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent {
-  isActive : boolean = true;
-  isActiveItems : ActiveItems = {
+export class HeaderComponent{
+  isActive: boolean = true;
+  isActiveItems: ActiveItems = {
     isActiveNotification: false,
     isActiveUser: false,
-    isActiveDashboard : false,
+    isActiveDashboard: false,
     isActiveSettings: false
   }
 
-  constructor(private sidebarStatusService: SidebarStatusService, private eRef:ElementRef) {
+  constructor(private sidebarStatusService: SidebarStatusService, private eRef: ElementRef) {
   }
 
-  toggleLogo():void{
+
+  toggleLogo(): void {
     this.isActive = !this.isActive;
     this.sidebarStatusService.changeStatus(this.isActive);
   }
 
-  toggleItem(option:string):void{
-    if (this.isActiveItems[option]){
+  toggleItem(option: string): void {
+    if (this.isActiveItems[option]) {
       this.isActiveItems[option] = false;
     } else {
       Object.keys(this.isActiveItems).forEach(key => {
@@ -54,13 +55,13 @@ export class HeaderComponent {
   }
 
   @HostListener('document:click', ['$event'])
-  onClickOutside(event: Event):void {
+  onClickOutside(event: Event): void {
     if (!this.eRef.nativeElement.contains(event.target)) {
       this.changeItems();
     }
   }
 
-  changeItems():void{
+  changeItems(): void {
     Object.keys(this.isActiveItems).forEach(key => {
       this.isActiveItems[key] = false;
     })

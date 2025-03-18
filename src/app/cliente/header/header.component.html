@@ -10,7 +10,12 @@
       <div class="d-flex align-items-center">
         <a class="text-white text-decoration-none py-2 px-4 d-none d-md-inline mx-auto" rel="noopener" href="">Inicio</a>
         <a class="text-white text-decoration-none py-2 px-lg-4 mx-auto store" rel="noopener" href="tienda">Tienda</a>
-        <a class="text-white text-decoration-none py-2 px-4 mx-auto" rel="noopener" href="cart"><i class="bi bi-cart"></i></a>
+
+        <div class="cart position-relative d-flex align-items-center justify-content-center z-3">
+          <span class="bg-success rounded-circle border border-2 position-absolute z-2 fs-6" *ngIf="cartItemCount>0">{{cartItemCount}}</span>
+          <a class="text-white text-decoration-none py-2 px-4 mx-auto" rel="noopener" href="cart"><i class="bi bi-cart"></i></a>
+        </div>
+
       </div>
 
       <button type="button" class="btn btn-white text-decoration-none py-lg-1 px-lg-3" routerLink="login" *ngIf="!token">

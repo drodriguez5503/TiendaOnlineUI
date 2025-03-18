@@ -11,6 +11,22 @@
   }
 }
 
+.cart {
+  span{
+    width: 30px;
+    height: 30px;
+    display: block;
+    bottom: -15px;
+    left: 5px;
+    border-color: green !important;
+    font-size: 5px;
+    font-weight: bolder;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+}
+
 @media(max-width: 769px){
   .nav-bar {
     position: absolute;
